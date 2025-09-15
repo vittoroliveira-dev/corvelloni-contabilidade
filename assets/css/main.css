@@ -1,21 +1,28 @@
-@layer tokens, base, objects, components, utilities;
-@import url('./base/_settings.css') layer(tokens);
-@import url('./base/_normalize.css') layer(base);
-@import url('./base/_typography.css') layer(base);
-@import url('./objects/_o-container.css') layer(objects);
-@import url('./objects/_o-grid.css') layer(objects);
-@import url('./components/_c-header.css') layer(components);
-@import url('./components/_c-brand.css') layer(components);
-@import url('./components/_c-nav.css') layer(components);
-@import url('./components/_c-dropdown.css') layer(components);
-@import url('./components/_c-hero.css') layer(components);
-@import url('./components/_c-card.css') layer(components);
-@import url('./components/_c-help.css') layer(components);
-@import url('./components/_c-article.css') layer(components);
-@import url('./components/_c-search.css') layer(components);
-@import url('./components/_c-form.css') layer(components);
-@import url('./components/_c-calc.css') layer(components);
-@import url('./components/_c-footer.css') layer(components);
-@import url('./utilities/_u-sr-only.css') layer(utilities);
-@import url('./utilities/_u-flow.css') layer(utilities);
-@import url('./utilities/_u-hide.css') layer(utilities);
+/* base */
+@import url('./base/_settings.css');
+@import url('./base/_normalize.css');
+/* forçar camada */
+@import url('./base/_typography.css');
+
+/* objects */
+@import url('./objects/_o-container.css');
+@import url('./objects/_o-grid.css');
+
+/* components */
+@import url('./components/_c-header.css');
+@import url('./components/_c-brand.css');
+@import url('./components/_c-nav.css');
+@import url('./components/_c-dropdown.css');
+@import url('./components/_c-hero.css');
+@import url('./components/_c-card.css');
+@import url('./components/_c-help.css');
+@import url('./components/_c-article.css');
+@import url('./components/_c-search.css');
+@import url('./components/_c-form.css');
+@import url('./components/_c-calc.css');
+@import url('./components/_c-footer.css');
+
+/* utilities */
+@import url('./utilities/_u-sr-only.css');
+@import url('./utilities/_u-flow.css');
+@import url('./utilities/_u-hide.css');
