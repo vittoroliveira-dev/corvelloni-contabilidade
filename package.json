@@ -1,15 +1,30 @@
 {
- "name":"corvelloni-contabilidade",
- "version":"1.0.0",
- "private":true,
- "scripts":{
-  "dev":"echo 'no dev server'",
-  "build":"mkdir -p dist && cp -r assets duvidas ajuda calc index.html sitemap.xml robots.txt .nojekyll dist/",
-  "lint":"npx htmlhint '**/*.html' && npx stylelint '**/*.css' && npx eslint '**/*.js'"
- },
- "devDependencies":{
-  "htmlhint":"^1.1.4",
-  "stylelint":"^15.10.0",
-  "eslint":"^8.50.0"
- }
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  },
+  "name": "corvelloni-contabilidade",
+  "version": "1.0.0",
+  "description": "Site estático institucional com calculadoras e hub de conteúdo.",
+  "main": "vite.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "esbuild": "^0.25.9",
+    "fdir": "^6.5.0",
+    "nanoid": "^3.3.11",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.3",
+    "postcss": "^8.5.6",
+    "rollup": "^4.50.2",
+    "source-map-js": "^1.2.1",
+    "tinyglobby": "^0.2.15"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

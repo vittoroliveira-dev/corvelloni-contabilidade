@@ -1,76 +1,204 @@
 <!doctype html>
-<html lang="pt-BR" class="no-js">
+<html lang="pt-BR" class="no-js over-hero">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
     <title>Contabilidade online para PJ | Corvelloni Contabilidade</title>
     <meta name="description"
         content="Abertura de empresa e contabilidade online integrada para PJ com a Corvelloni Contabilidade.">
-    <link rel="canonical" href="https://corvelloni.com.br/">
-    <link rel="preload" href="/assets/css/main.css" as="style">
-    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <link rel="canonical" href="https://vittoroliveira-dev.github.io/corvelloni-contabilidade/">
+
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Corvelloni Contabilidade">
-    <meta property="og:description" content="Contabilidade online para PJ.">
-    <meta property="og:url" content="https://corvelloni.com.br/">
-    <link rel="icon" href="/assets/img/logo-512.png" sizes="32x32">
-    <script
-        type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://corvelloni.com.br/#org","name":"Corvelloni Contabilidade","url":"https://corvelloni.com.br/","logo":{"@type":"ImageObject","url":"https://corvelloni.com.br/assets/img/logo-512.png"},"sameAs":["https://www.linkedin.com/company/corvelloni","https://www.instagram.com/corvelloni"]},{"@type":"WebSite","@id":"https://corvelloni.com.br/#website","url":"https://corvelloni.com.br/","inLanguage":"pt-BR","publisher":{"@id":"https://corvelloni.com.br/#org"}}]}</script>
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Contabilidade online para PJ | Corvelloni Contabilidade">
+    <meta property="og:description" content="Abertura de empresa e contabilidade online integrada para PJ.">
+    <meta property="og:url" content="https://vittoroliveira-dev.github.io/corvelloni-contabilidade/">
+    <meta property="og:image"
+        content="https://vittoroliveira-dev.github.io/corvelloni-contabilidade/assets/img/og-image.png">
+
+    <link rel="icon" href="/corvelloni-contabilidade/assets/img/android-chrome-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/corvelloni-contabilidade/assets/img/android-chrome-192x192.png">
+    <meta name="theme-color" content="#A92534">
+
+    <link rel="manifest" href="/corvelloni-contabilidade/site.webmanifest">
+
+    <link rel="preload" href="/corvelloni-contabilidade/assets/css/main.css" as="style">
+    <link rel="stylesheet" href="/corvelloni-contabilidade/assets/css/main.css">
+
+    <!-- Preload da LCP (hero) -->
+    <link rel="preload" as="image" href="/corvelloni-contabilidade/assets/img/webp/hero.webp" imagesrcset="/corvelloni-contabilidade/assets/img/avif/hero.avif type('image/avif'),
+                     /corvelloni-contabilidade/assets/img/webp/hero.webp type('image/webp'),
+                     /corvelloni-contabilidade/assets/img/hero.png" imagesizes="(max-width: 768px) 100vw, 800px"
+        fetchpriority="high">
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [{
+      "@type": "Organization",
+      "@id": "https://vittoroliveira-dev.github.io/corvelloni-contabilidade/#org",
+      "name": "Corvelloni Contabilidade",
+      "url": "https://vittoroliveira-dev.github.io/corvelloni-contabilidade/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vittoroliveira-dev.github.io/corvelloni-contabilidade/assets/img/logo-512.png"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/corvelloni",
+        "https://www.instagram.com/corvelloni"
+      ]
+    },{
+      "@type": "WebSite",
+      "@id": "https://vittoroliveira-dev.github.io/corvelloni-contabilidade/#website",
+      "url": "https://vittoroliveira-dev.github.io/corvelloni-contabilidade/",
+      "inLanguage": "pt-BR",
+      "name": "Corvelloni Contabilidade",
+      "publisher": { "@id": "https://vittoroliveira-dev.github.io/corvelloni-contabilidade/#org" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vittoroliveira-dev.github.io/corvelloni-contabilidade/duvidas/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }]
+  }
+  </script>
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
 
 <body>
     <a href="#conteudo" class="u-sr-only u-sr-only--focusable">Pular para conteúdo</a>
-    <header class="c-header">
-        <div class="o-container c-header__inner">
-            <a class="c-brand" href="/">
-                <img class="c-brand__logo" src="/assets/img/logo-512.png" alt="" width="32" height="32">
+
+    <header class="c-header" role="banner">
+        <div class="c-header__inner">
+            <a class="c-brand" href="/corvelloni-contabilidade/">
+                <img class="c-brand__logo" src="/corvelloni-contabilidade/assets/img/logo-512.png"
+                    alt="Corvelloni Contabilidade" width="32" height="32">
                 <span>Corvelloni Contabilidade</span>
             </a>
+
             <nav class="c-nav" aria-label="Navegação primária">
-                <button class="c-nav__toggle" aria-expanded="false" aria-controls="menu">Menu</button>␊
-                <ul id="menu" class="c-nav__menu">␊
-                    <li><a class="c-nav__link" href="/">Home</a></li>␊
-                    <li class="c-dropdown"><button class="c-nav__link" aria-haspopup="true" aria-expanded="false"
+                <button class="c-nav__toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+                <ul id="menu" class="c-nav__menu">
+                    <li><a class="c-nav__link" href="/corvelloni-contabilidade/" aria-current="page">Home</a></li>
+                    <li class="c-dropdown">
+                        <button class="c-nav__link" aria-haspopup="true" aria-expanded="false"
                             aria-controls="dd1">Serviços</button>
                         <ul id="dd1" role="menu" class="c-dropdown__menu" hidden>
-                            <li><a href="/duvidas/">Dúvidas</a></li>
-                            <li><a href="/ajuda/">Ajuda</a></li>
-                            <li><a href="/calc/salario-liquido/">Calculadoras</a></li>
+                            <li><a class="c-dropdown__link" href="/corvelloni-contabilidade/abrir-empresa/">Abertura de
+                                    Empresa</a></li>
+                            <li><a class="c-dropdown__link"
+                                    href="/corvelloni-contabilidade/contabilidade-pj/">Contabilidade PJ</a></li>
+                            <li><a class="c-dropdown__link" href="/corvelloni-contabilidade/migrar-contador/">Migrar
+                                    Contador</a></li>
                         </ul>
                     </li>
+                    <li class="c-dropdown">
+                        <button class="c-nav__link" aria-haspopup="true" aria-expanded="false"
+                            aria-controls="dd2">Ferramentas</button>
+                        <ul id="dd2" role="menu" class="c-dropdown__menu" hidden>
+                            <li><a class="c-dropdown__link"
+                                    href="/corvelloni-contabilidade/calc/salario-liquido/">Calculadora Salário</a></li>
+                            <li><a class="c-dropdown__link" href="/corvelloni-contabilidade/calc/clt-vs-pj/">Calculadora
+                                    CLT vs PJ</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="c-nav__link" href="/corvelloni-contabilidade/duvidas/">Dúvidas</a></li>
+                    <li><a class="c-nav__link" href="/corvelloni-contabilidade/contato/">Contato</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
     <main id="conteudo">
-        <section class="c-hero o-container">
-            <h1 class="c-hero__title">Contabilidade online para PJ</h1>
-            <p data-animate>Facilidade total na abertura e gestão da sua empresa.</p>
-            <a class="c-hero__cta" href="/ajuda/">Começar agora</a>
-            <picture>
-                <source srcset="/assets/img/avif/hero.avif" type="image/avif">
-                <source srcset="/assets/img/webp/hero.webp" type="image/webp">
-                <img src="/assets/img/hero.png" alt="" width="512" height="256" loading="lazy" decoding="async">
-            </picture>
+        <section class="c-hero">
+            <div class="c-hero__inner">
+                <h1 class="c-hero__title">Contabilidade online para PJ</h1>
+                <p data-animate>Facilidade total na abertura e gestão da sua empresa.</p>
+                <div class="c-hero__actions">
+                    <a class="c-hero__cta" href="/corvelloni-contabilidade/abrir-empresa/">Abrir minha empresa
+                        grátis</a>
+                </div>
+                <picture class="c-hero__media">
+                    <source srcset="/corvelloni-contabilidade/assets/img/avif/hero.avif" type="image/avif">
+                    <source srcset="/corvelloni-contabilidade/assets/img/webp/hero.webp" type="image/webp">
+                    <img src="/corvelloni-contabilidade/assets/img/hero.png"
+                        alt="Dashboard da plataforma de contabilidade em um laptop" width="1280" height="640"
+                        sizes="(max-width: 768px) 100vw, 800px" fetchpriority="high" decoding="async">
+                </picture>
+            </div>
         </section>
-        <section class="o-container o-grid o-grid--2">
-            <div class="c-card" data-animate>
-                <h2 class="c-card__title">Dúvidas frequentes</h2>
-                <p><a href="/duvidas/">Acesse nosso hub</a></p>
+
+        <section class="o-container o-grid o-grid--2" data-animate-group>
+            <div class="c-card c-card--interactive" data-animate="up">
+                <h2 class="c-card__title"><a href="/corvelloni-contabilidade/duvidas/" class="u-stretched-link">Dúvidas
+                        Frequentes</a></h2>
+                <p class="c-card__text">Acesse nosso hub de conhecimento e encontre respostas sobre o universo PJ.</p>
             </div>
-            <div class="c-card" data-animate>
-                <h2 class="c-card__title">Calculadoras</h2>
-                <p><a href="/calc/salario-liquido/">Veja ferramentas</a></p>
+
+            <div class="c-card c-card--interactive" data-animate="up">
+                <h2 class="c-card__title"><a href="/corvelloni-contabilidade/calc/"
+                        class="u-stretched-link">Calculadoras</a></h2>
+                <p class="c-card__text">Ferramentas gratuitas para planejar finanças e entender impostos e salários.</p>
             </div>
+        </section>
+
+        <section class="o-container"
+            style="max-width:75ch;margin-inline:auto;text-align:center;padding-block:var(--space-xl);">
+            <h2>Tudo que sua empresa precisa, em um só lugar</h2>
+            <p>Da abertura do CNPJ à gestão completa da contabilidade.</p>
         </section>
     </main>
+
     <footer class="c-footer">
-        <div class="c-footer__inner o-container">
-            <span>&copy; <span id="year"></span> Corvelloni Contabilidade</span>
+        <div class="c-footer__inner">
+            <div class="c-footer__brand">
+                <a class="c-brand" href="/corvelloni-contabilidade/">
+                    <img class="c-brand__logo" src="/corvelloni-contabilidade/assets/img/logo-512.png"
+                        alt="Corvelloni Contabilidade" width="32" height="32">
+                    <span>Corvelloni</span>
+                </a>
+                <p>Contabilidade online e descomplicada para sua empresa.</p>
+            </div>
+            <div>
+                <h3 class="c-footer__title">Serviços</h3>
+                <ul class="c-footer__nav">
+                    <li><a href="/corvelloni-contabilidade/abrir-empresa/">Abertura de Empresa</a></li>
+                    <li><a href="/corvelloni-contabilidade/contabilidade-pj/">Contabilidade para PJ</a></li>
+                    <li><a href="/corvelloni-contabilidade/migrar-contador/">Migração de Contador</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="c-footer__title">Ferramentas</h3>
+                <ul class="c-footer__nav">
+                    <li><a href="/corvelloni-contabilidade/calc/salario-liquido/">Calculadora Salário</a></li>
+                    <li><a href="/corvelloni-contabilidade/calc/clt-vs-pj/">Calculadora CLT vs PJ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="c-footer__title">Institucional</h3>
+                <ul class="c-footer__nav">
+                    <li><a href="/corvelloni-contabilidade/sobre/">Sobre Nós</a></li>
+                    <li><a href="/corvelloni-contabilidade/contato/">Contato</a></li>
+                    <li><a href="/corvelloni-contabilidade/duvidas/">Dúvidas Frequentes</a></li>
+                </ul>
+            </div>
+
+            <div class="c-footer__bottom">
+                <p class="c-footer__legal">© <span id="year"></span> Corvelloni Contabilidade</p>
+                <div class="c-footer__socials">
+                    <a href="https://www.linkedin.com" aria-label="LinkedIn">in</a>
+                    <a href="https://www.instagram.com" aria-label="Instagram">ig</a>
+                </div>
+            </div>
         </div>
     </footer>
-    <script type="module" src="/assets/js/app.js"></script>
+
+    <script type="module" src="/corvelloni-contabilidade/assets/js/app.js"></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 
 </html>

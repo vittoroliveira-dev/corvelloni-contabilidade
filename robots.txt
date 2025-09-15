@@ -1,3 +1,10 @@
+# /robots.txt
 User-agent: *
 Allow: /
-Sitemap: https://corvelloni.com.br/sitemap.xml
+
+# Sitemaps
+Sitemap: https://vittoroliveira-dev.github.io/corvelloni-contabilidade/sitemap.xml
+# Futuro (se dividir):
+# Sitemap: https://vittoroliveira-dev.github.io/corvelloni-contabilidade/sitemap-pages.xml
+# Sitemap: https://vittoroliveira-dev.github.io/corvelloni-contabilidade/sitemap-duvidas.xml
+# Sitemap: https://vittoroliveira-dev.github.io/corvelloni-contabilidade/sitemap-calc.xml
