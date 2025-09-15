@@ -1,30 +1,23 @@
 {
+  "name": "corvelloni-contabilidade",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
-    "preview": "vite preview"
+    "build": "vite build",
+    "build:gh": "vite build --base=/corvelloni-contabilidade/",
+    "preview": "vite preview --open",
+    "lint:js": "eslint \"assets/js/**/*.js\"",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "lint:html": "htmlhint \"**/*.html\" -c .htmlhintrc -x \"docs/**\"",
+    "check": "npm run lint:js && npm run lint:css && npm run lint:html && npm run build"
   },
   "devDependencies": {
+    "eslint": "^9.9.0",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^16.8.0",
+    "stylelint-config-standard": "^36.0.0",
     "vite": "^7.1.5"
-  },
-  "name": "corvelloni-contabilidade",
-  "version": "1.0.0",
-  "description": "Site estático institucional com calculadoras e hub de conteúdo.",
-  "main": "vite.config.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {
-    "esbuild": "^0.25.9",
-    "fdir": "^6.5.0",
-    "nanoid": "^3.3.11",
-    "picocolors": "^1.1.1",
-    "picomatch": "^4.0.3",
-    "postcss": "^8.5.6",
-    "rollup": "^4.50.2",
-    "source-map-js": "^1.2.1",
-    "tinyglobby": "^0.2.15"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
