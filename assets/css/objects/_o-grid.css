@@ -1,2 +1,12 @@
-.o-grid{display:grid;gap:var(--space-lg)}
-@media(min-width:40em){.o-grid--2{grid-template-columns:repeat(2,1fr)}}
+@layer objects {
+    .o-grid {
+        display: grid;
+        gap: var(--space-lg)
+    }
+
+    @media(min-width:40em) {
+        .o-grid--2 {
+            grid-template-columns: repeat(2, 1fr)
+        }
+    }
+}

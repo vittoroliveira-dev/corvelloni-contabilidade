@@ -1,1 +1,8 @@
-.o-container{width:100%;max-width:70rem;margin-inline:auto;padding:0 var(--space-md)}
+@layer objects {
+    .o-container {
+        width: 100%;
+        max-width: 70rem;
+        margin-inline: auto;
+        padding: 0 var(--space-md)
+    }
+}
