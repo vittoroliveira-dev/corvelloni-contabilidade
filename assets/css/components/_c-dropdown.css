@@ -1,0 +1,2 @@
+.c-dropdown__menu[hidden]{display:none}
+.c-dropdown__menu{position:absolute;background:var(--color-bg);border:1px solid var(--color-border);padding:var(--space-sm);z-index:var(--z-nav)}
