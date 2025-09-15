@@ -1,94 +1,67 @@
-/* assets/css/components/_c-dropdown.css */
+/* components/_c-dropdown.css */
 .c-dropdown {
-    position: relative
-}
-
-/* MENU */
-.c-dropdown__menu {
     position: absolute;
-    inset-block-start: calc(100% + var(--space-xs));
+    inset-block-start: calc(100% + var(--space-xs, .5rem));
     inset-inline-start: 0;
-    z-index: var(--z-popover, calc(var(--z-header, 1000) + 10));
-    min-inline-size: 12.5rem;
-    /* 200px */
+    z-index: calc(var(--z-header, 1000) + 10);
+    min-inline-size: 220px;
     max-inline-size: min(90vw, 24rem);
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
     padding: var(--space-xs);
-    margin: 0;
-    list-style: none;
-
     /* animação */
     opacity: 1;
-    transform: translateY(0) scale(1);
     visibility: visible;
     pointer-events: auto;
+    transform: translateY(0) scale(1);
     transform-origin: top left;
-    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
-    will-change: transform, opacity;
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    contain: layout style;
+    /* isola o painel */
 }
 
-/* oculto com transição (mantém display:block) */
-.c-dropdown__menu[hidden] {
+/* oculto com transição (sobrescreve o normalize só para dropdown) */
+.c-dropdown[hidden] {
     display: block;
-    /* sobrescreve [hidden]{display:none} */
+    /* mantém fluxo para animar */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-8px) scale(.98);
 }
 
-/* alinhamento à direita */
-.c-dropdown--end .c-dropdown__menu {
+/* alinhar à direita quando precisar */
+.c-dropdown--end {
     inset-inline-start: auto;
     inset-inline-end: 0;
     transform-origin: top right;
 }
 
-/* ITENS */
+/* itens */
 .c-dropdown__item {
-    margin: 0
-}
-
-.c-dropdown__link {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .5rem .75rem;
+    display: block;
+    padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-sm);
     color: var(--color-text);
     text-decoration: none;
     white-space: nowrap;
-    -webkit-tap-highlight-color: transparent;
     transition: background-color .15s ease, color .15s ease;
 }
 
-/* hover com fallback + color-mix */
-.c-dropdown__link:hover,
-.c-dropdown__link:focus-visible {
-    background: var(--surface-tint-6, var(--color-surface));
+.c-dropdown__item:hover,
+.c-dropdown__item:focus-visible {
+    background: var(--primary-tint-12, var(--color-surface));
     color: var(--color-primary);
 }
 
-@supports (color-mix(in srgb, black 0%, white 0%)) {
-
-    .c-dropdown__link:hover,
-    .c-dropdown__link:focus-visible {
-        background: color-mix(in srgb, var(--color-primary) 6%, var(--color-bg));
+@media (prefers-reduced-motion:reduce) {
+    .c-dropdown {
+        transition: none
     }
-}
 
-/* foco */
-.c-dropdown__link:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 2px;
-}
-
-/* separador opcional */
-.c-dropdown__separator {
-    height: 1px;
-    margin: var(--space-xs) 0;
-    background: var(--color-border);
+    .c-dropdown[hidden] {
+        transform: none
+    }
 }

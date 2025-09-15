@@ -1,17 +1,12 @@
-/* BRAND */
+/* components/_c-brand.css */
 .c-brand {
     display: inline-flex;
+    flex: 0 0 auto;
     align-items: center;
     gap: var(--space-sm);
     min-block-size: max(44px, var(--header-height-sm, 44px));
-    /* hit target */
-    line-height: 1;
-    padding-inline: 0;
     color: var(--color-text);
-    font-size: var(--fs-500);
-    font-weight: 700;
     text-decoration: none;
-    white-space: nowrap;
     -webkit-tap-highlight-color: transparent;
     transition: opacity .2s ease, color .2s ease;
 }
@@ -20,33 +15,38 @@
     opacity: .88
 }
 
-.c-brand:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 2px;
-}
-
-/* Logo */
+/* logo (SVG ou IMG) */
 .c-brand__logo {
     display: block;
-    block-size: var(--brand-logo-size, 32px);
-    inline-size: auto;
+    max-block-size:44px;
     flex: 0 0 auto;
+    inline-size:auto;
+    /* header */
+    block-size:164px;
 }
 
-/* Se usar SVG inline, herda a cor do texto */
+/* opcional: logo menor no rodapé */
+.c-footer .c-brand__logo {
+    inline-size: 96px
+}
+
+/* texto opcional da marca */
+.c-brand__text {
+    font-size: var(--fs-500);
+    font-weight: 700;
+    letter-spacing: .01em;
+    white-space: nowrap;
+}
+
+/* variante compacta */
+.c-brand--compact .c-brand__text {
+    display: none
+}
+
+/* se usar SVG inline */
 .c-brand__logo svg {
     display: block;
     inline-size: auto;
     block-size: 100%;
     fill: currentColor
-}
-
-/* Texto opcional da marca */
-.c-brand__text {
-    letter-spacing: .01em
-}
-
-/* Variante compacta (ex.: mobile muito estreito) */
-.c-brand--compact .c-brand__text {
-    display: none
 }

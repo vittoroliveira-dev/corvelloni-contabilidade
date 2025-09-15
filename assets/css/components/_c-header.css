@@ -1,59 +1,29 @@
 /* assets/css/components/_c-header.css */
-.c-header {
-    position: sticky;
-    inset-block-start: 0;
-    z-index: var(--z-header, 1000);
-    inline-size: 100%;
-    block-size: var(--header-height-sm, 64px);
-
-    /* vidro fosco com fallback */
-    background-color: var(--header-bg, rgba(255, 255, 255, .72));
-    border-block-end: 1px solid var(--color-border);
+  .c-header{
+    position: sticky; top:0; inline-size:100%;
+    display:flex; align-items: center;
+    gap:var(--space-lg);
+    z-index: var(--z-header,1000);
+    background: var(--header-bg, var(--color-bg));
+    border-bottom: 1px solid var(--color-border);
     -webkit-tap-highlight-color: transparent;
+    transition: background-color .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+  }
+  /* efeito vidro quando houver suporte */
+  @supports (backdrop-filter: blur(8px)){
+    .c-header{ backdrop-filter: blur(8px) }
+  }
+   /* variante sólida forçada */
+  .c-header--solid{ --header-bg: var(--color-bg); backdrop-filter: none }
 
-    transition:
-        background-color .25s ease,
-        border-color .25s ease,
-        backdrop-filter .25s ease;
-}
-
-/* blur quando suportado */
-@supports (backdrop-filter: blur(8px)) {
-    .c-header {
-        backdrop-filter: blur(8px)
-    }
-}
-
-/* sobre o hero: transparente até rolar */
-html.over-hero:not(.is-scrolled) .c-header {
-    background-color: transparent;
-    border-color: transparent;
-    backdrop-filter: none;
-}
-
-/* variante sólida forçada */
-.c-header--solid {
-    --header-bg: var(--color-bg);
-    backdrop-filter: none;
-}
-
-/* container interno */
-.c-header__inner {
+  /* container interno */
+  .c-header__inner{
+    min-block-size: var(--header-height-sm,64px);
     max-inline-size: var(--container-max);
     padding-inline: var(--container-padding);
-    margin-inline: auto;
-
-    inline-size: 100%;
-    block-size: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-md);
-}
-
-/* altura em telas maiores */
-@media (min-width:48em) {
-    .c-header {
-        block-size: var(--header-height, 72px)
-    }
-}
+    margin-inline:auto;
+    display:flex; align-items:center; justify-content:space-between; gap: var(--space-md);
+  }
+  @media (min-width:48em){
+    .c-header__inner{ min-block-size: var(--header-height,72px) }
+  }
