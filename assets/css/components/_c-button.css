@@ -1,0 +1,21 @@
+/* botão básico, estilo Contabilizei-like: sólido, arredondado, foco visível */
+.c-button {
+    display: inline-block;
+    padding: .875rem 1.25rem;
+    border-radius: 999px;
+    background: var(--color-primary, #2f80ed);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1;
+    border: 0;
+    cursor: pointer;
+}
+
+.c-button:focus-visible {
+    outline: 3px solid color-mix(in srgb, #2f80ed 40%, white)
+}
+
+.c-button:hover {
+    filter: brightness(0.95)
+}
