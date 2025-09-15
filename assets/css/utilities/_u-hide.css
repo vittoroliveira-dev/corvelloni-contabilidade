@@ -1,1 +1,5 @@
-.u-hide{display:none!important}
+@layer utilities {
+    .u-hide {
+        display: none !important
+    }
+}

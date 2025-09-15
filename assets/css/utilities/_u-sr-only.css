@@ -1,2 +1,39 @@
-.u-sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.u-sr-only--focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto;white-space:normal}
+@layer utilities {
+
+    /**
+   * Visually hide an element while keeping it accessible to screen readers.
+   * Useful for accessibility when you want to provide additional context to screen reader users without displaying it visually.
+   * 
+   * Usage:
+   * Add the class `u-sr-only` to any element you want to hide visually but keep accessible to screen readers.
+   * 
+   * Example:
+   * <span class="u-sr-only">This text is only visible to screen readers.</span>
+   * 
+   * To make the element focusable (e.g., for keyboard navigation), add the class `u-sr-only--focusable` in addition to `u-sr-only`.
+   * 
+   * Example:
+   * <a href="#" class="u-sr-only u-sr-only--focusable">This link is only visible to screen readers and can be focused.</a>
+   */
+    .u-sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+        border: 0
+    }
+
+    .u-sr-only--focusable:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal
+    }
+}
