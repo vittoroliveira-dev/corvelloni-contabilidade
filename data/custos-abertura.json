@@ -1,0 +1,4 @@
+[
+ {"uf":"SP","natureza":"ME","porte":"ME","taxas":1000,"servicos":500,"prazo":10},
+ {"uf":"RJ","natureza":"ME","porte":"ME","taxas":1200,"servicos":600,"prazo":15}
+]
