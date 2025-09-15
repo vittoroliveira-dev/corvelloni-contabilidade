@@ -1,16 +1,18 @@
-# AGENTS.md  Corvelloni Contabilidade
+# AGENTS.md . Corvelloni Contabilidade
 
-## Escopo
-- Guia para agentes (Codex) editarem este repositório.
-- Válido para **todo o repo**. **Não** criar branches. **Commit único** por tarefa. Worktree **limpa** ao final.
+## Scope
+- This file tells Codex how to work in this repo.
+- Applies to the **whole repo**.
+- Do **not** create branches. Make **one commit** per task.
+- Leave the worktree **clean** at the end.
 
-## Ambiente
+## Environment
 - Node.js ≥ 18, npm ≥ 9.
-- SO do agente pode ser Linux; o usuário local usa Windows.
-- Shells: Linux/macOS = `bash`, Windows = `powershell`.
+- Agent OS can be Linux. Local user is on Windows.
+- Shells: Linux/macOS = bash, Windows = PowerShell.
 
-## Layout do projeto (alto nível)
-```txt
+## Project layout (high level)
+~~~txt
 /
 ├─ index.html
 ├─ ajuda/
@@ -27,161 +29,142 @@
 │  └─ como-funciona-simples/
 ├─ assets/ {css, js, img, icons}
 ├─ data/
-├─ docs/   # saída do build
+├─ docs/   # build output
 ├─ site.webmanifest, robots.txt, sitemap.xml, 404.html
 ├─ vite.config.js
 ├─ .eslintrc.json, .stylelintrc.json, .htmlhintrc, .nojekyll, .gitignore, .gitattributes
 ├─ README.md
 └─ AGENTS.md
+~~~
 
-
-## Comandos obrigatórios
-Executar nesta ordem antes de concluir qualquer tarefa.
+## Required commands (run before finishing any task)
 
 ### Linux/macOS
+~~~bash
 npm ci
 npm run check     # eslint + stylelint + html-validate + build
 npm run preview -s || true
 git status
-
+~~~
 
 ### Windows
+~~~powershell
 npm ci
 npm run check
 npm run preview
 git status
+~~~
+
+## Git rules
+- Do not create branches. Do not rewrite old commits.
+- If pre-commit fails, fix the issues and try again.
+- Commit edited files plus generated `docs/`.
+- End with `git status` clean.
+
+## Commit message format (Conventional Commits)
+~~~txt
+feat: add page X
+fix: fix header dropdown
+chore: update vite config
+docs: update README/AGENTS
+~~~
+
+## Build and dev
+- Dev: `npm run dev` → http://localhost:5173
+- Build: `npm run build` → writes to `/docs`
+- Preview: `npm run preview`
+- Do **not** edit files in `/docs` by hand.
+
+## CSS (ITCSS)
+- Folders: `assets/css/{base,objects,components,utilities}` + `assets/css/main.css`.
+- Import order in `main.css`:
+  1) `base/_settings.css`
+  2) `base/_normalize.css`
+  3) `base/_typography.css`
+  4) `base/_print.css`
+  5) `objects/_o-*.css`
+  6) `components/_c-*.css`
+  7) `utilities/_u-*.css`
+- Prefixes: `.c-` components, `.o-` objects, `.u-` utilities.
+- When adding CSS, put it in the right folder and import it in `main.css` in the order above.
+
+## JS (ES Modules)
+- Single entry: `assets/js/app.js` with `type="module"`.
+- Modules live in `assets/js/modules/`.
+- Do **not** use `return` at top level. Use an IIFE if needed.
+- Pattern:
+  - global modules: imported directly in `app.js`;
+  - page-only modules: load with conditional `import()`.
+
+~~~txt
+assets/js/
+├─ app.js
+└─ modules/
+   ├─ nav.js
+   ├─ enhance.js
+   ├─ year.js
+   ├─ header-over-hero.js
+   ├─ help-search.js
+   └─ calc-*.js
+~~~
+
+## HTML
+- Use relative paths for assets: `assets/...` (works in dev and build).
+- Keep header and footer the same across pages.
+- Dropdown pattern: trigger `button.c-nav__link[aria-expanded]` + panel `.c-dropdown[hidden]`.
+
+## Accessibility
+- Visible focus via `:focus-visible`.
+- Touch targets ≥ 44px.
+- Update `aria-expanded` with JS; show/hide using `[hidden]`.
+- Respect `prefers-reduced-motion`.
+
+## Images and icons
+- Logo: `assets/img/svg/logo.svg` with a proper `viewBox`.
+- PWA icons in `assets/icons/`: `android-chrome-192.png`, `android-chrome-512.png`, `icon-192-maskable.png`, `icon-512-maskable.png`, `apple-touch-icon.png`, `favicon-16.png`, `favicon-32.png`.
+- Content images in `assets/img/{webp,avif}`. Use `loading="lazy"` outside the hero.
+
+## How to add a new page
+1) Create `folder/index.html` under `ajuda/`, `duvidas/`, or `calc/<slug>/`.
+2) Add these tags:
+   - `<link rel="stylesheet" href="assets/css/main.css">`
+   - `<script type="module" src="assets/js/app.js"></script>`
+3) Update the navigation if needed.
+4) If the page needs custom JS, create a module in `assets/js/modules/` and load it with conditional `import()` from `app.js`.
+5) Run `npm run check`.
+6) If the page is missing in the build, add it to `vite.config.js` in `rollupOptions.input`.
+
+## Acceptance criteria
+- `npm run check` passes.
+- Navigation works in dev and preview.
+- `docs/` is generated and committed.
+- Basic a11y OK (tab works, focus visible, dropdown keyboard-friendly).
+- No broken absolute paths.
+
+## Common tasks
+- Header/Nav/Dropdown:
+  - CSS only in `_c-header.css`, `_c-nav.css`, `_c-dropdown.css`.
+  - JS only in `modules/nav.js`.
+  - No frameworks.
+- Change logo size:
+  - Edit `.c-brand__logo` height via `block-size`.
+  - Do not change `--header-height`.
+
+  ## Language
+- All human-facing output must be in **Brazilian Portuguese (PT-BR)**: error messages, PR descriptions, code comments, UI copy, and agent replies.
+- Commits must follow **Conventional Commits**: types in English (`feat`, `fix`, etc.), but **titles and bodies in PT-BR**.
+- Logs/commands may stay in English, but any explanations or summaries must be in **PT-BR**.
+- If a tool generates text in another language, **translate to PT-BR** before finishing the task.
+
+### Examples
+- Commit: `feat: adiciona página "Como funciona" e links no header`
+- PR title: `Corrige dropdown do menu no mobile`
+- PR body: `Resumo, mudanças e como testar  em PT-BR.`
 
 
-###Regras de Git
-Não criar branches. Não alterar commits existentes.
-Se pre-commit existir e falhar, corrigir e tentar novamente.
-Commitar apenas arquivos editados + artefatos de docs/ gerados pelo build.
-Deixar git status clean no final.
-
-###Mensagem de commit
-feat: adiciona página X
-fix: corrige dropdown no header
-chore: atualiza configuração do vite
-docs: atualiza README/AGENTS
-
-
-###Build e dev
-Dev: npm run dev → http://localhost:5173
-Build: npm run build → escreve em /docs
-Preview: npm run preview
-Não editar manualmente arquivos em /docs. Eles são gerados.
-
-###CSS (ITCSS)
-Estrutura: assets/css/{tokens, base, objects, components, utilities} + assets/css/main.css.
-Ordem de import em main.css:
-base/_settings.css layer(tokens)
-base/_normalize.css
-base/_typography.css
-base/_print.css layer(base) print;
-objects/_o-container.css
-objects/_o-grid.css
-components/_c-header.css
-components/_c-brand.css
-components/_c-nav.css
-components/_c-dropdown.css
-components/_c-hero.css
-components/_c-card.css
-components/_c-help.css
-components/_c-article.css
-components/_c-search.css
-components/_c-form.css
-components/_c-calc.css
-components/_c-footer.css
-components/_c-table.css
-components/_c-breadcrumb.css
-components/_c-alert.css
-components/_c-button.css
-utilities/_u-sr-only.css
-utilities/_u-flow.css
-utilities/_u-hide.css
-utilities/_u-stretched-link.css
-utilities/_u-animations.css
-Prefixos: .c- componentes, .o- objetos, .u- utilitários.
-
-Ao criar um novo CSS, salve no subdiretório correto e adicione @import correspondente em main.css respeitando a ordem.
-
-###JS (ES Modules)
-
-Entrada: assets/js/app.js com type="module".
-Módulos em assets/js/modules/.
-Não usar return no topo de arquivo. Use IIFE quando necessário.
-Padrão:
-módulos globais importados diretamente no app.js;
-módulos por página carregados condicionalmente (ex.: via data-* no HTML e import() dinâmico).
-
-Estrutura:
-
-assets/js/app.js
-assets/js/modules/nav.js
-assets/js/modules/enhance.js
-assets/js/modules/year.js
-assets/js/modules/calc-rescisao.js
-assets/js/modules/calc-impostos-pj.js
-assets/js/modules/calc-fator-r.js
-assets/js/modules/calc-custo-cnpj.js
-assets/js/modules/calc-clt-pj.js
-assets/js/modules/calc-salario.js
-assets/js/modules/help-search.js
-assets/js/modules/header-over-hero.js
-
-###HTML
-
-Usar caminhos relativos para assets: assets/... (funciona em dev e no docs/).
-Header e footer consistentes entre páginas.
-Dropdown: gatilho button.c-nav__link[aria-expanded] + painel .c-dropdown[hidden].
-
-###Acessibilidade
-
-Focus visível (:focus-visible) já configurado.
-Alvos mínimos de toque: 44px.
-aria-expanded atualizado via JS; mostrar/ocultar com [hidden].
-Evitar movimento excessivo; respeitar prefers-reduced-motion.
-
-###Imagens e ícones
-
-Logo principal: assets/img/svg/logo.svg (com viewBox).
-PWA: assets/icons/{android-chrome-192.png, android-chrome-512.png, icon-192-maskable.png, icon-512-maskable.png, apple-touch-icon.png, favicon-16.png, favicon-32.png}.
-Imagens de conteúdo em assets/img/{webp,avif}. Preferir loading="lazy" fora do hero.
-
-###Como adicionar uma nova página
-Criar pasta/index.html sob ajuda/, duvidas/ ou calc/<slug>/.
-Incluir no HTML:
-
-<link rel="stylesheet" href="assets/css/main.css">
-<script type="module" src="assets/js/app.js"></script>
-
-Atualizar navegação se necessário.
-Se a página precisa de JS dedicado, criar em assets/js/modules/ e fazer import() condicional a partir de app.js.
-Rodar npm run check.
-Se o HTML não estiver listado como entrada no vite.config.js e falhar a navegação pós-build, adicione em rollupOptions.input.
-
-###Critérios de aceite para tarefas
-
-npm run check passa.
-Navegação funciona em dev e no preview.
-docs/ gerado e commitado.
-A11y básica cumprida (tab navega, focus visível, dropdown operável por teclado).
-Sem paths absolutos quebrados.
-
-###Tarefas comuns
-Corrigir header/nav/dropdown
-CSS apenas em assets/css/components/_c-header.css, _c-nav.css, _c-dropdown.css.
-JS apenas em assets/js/modules/nav.js.
-Não introduzir frameworks.
-
-###Ajustar tamanho do logo
-
-Editar .c-brand__logo (altura via block-size) sem alterar --header-height.
-
-PR / Mensagem final (se aplicável)
-
-###Inclua no resumo:
-
-O que mudou e por quê.
-Páginas afetadas.
-Saída de npm run check OK.
+## Final checklist
+- [ ] `npm ci`
+- [ ] `npm run check`
+- [ ] `docs/` updated
+- [ ] `git status` clean
+- [ ] Single commit using Conventional Commits
