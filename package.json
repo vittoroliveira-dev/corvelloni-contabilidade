@@ -1,0 +1,15 @@
+{
+ "name":"corvelloni-contabilidade",
+ "version":"1.0.0",
+ "private":true,
+ "scripts":{
+  "dev":"echo 'no dev server'",
+  "build":"mkdir -p dist && cp -r assets duvidas ajuda calc index.html sitemap.xml robots.txt .nojekyll dist/",
+  "lint":"npx htmlhint '**/*.html' && npx stylelint '**/*.css' && npx eslint '**/*.js'"
+ },
+ "devDependencies":{
+  "htmlhint":"^1.1.4",
+  "stylelint":"^15.10.0",
+  "eslint":"^8.50.0"
+ }
+}
