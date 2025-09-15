@@ -18,11 +18,19 @@
 /* logo (SVG ou IMG) */
 .c-brand__logo {
     display: block;
-    max-block-size:44px;
+    block-size: var(--header-height-sm,64px);
+    transform: scale(1.25);
+    transform-origin: left center;
     flex: 0 0 auto;
+    align-items: left;
     inline-size:auto;
     /* header */
     block-size:164px;
+}
+
+/* opcional: maior só no desktop */
+@media (min-width:48em){
+  .c-brand__logo{ block-size: var(--header-height,72px); transform: scale(1.2) }
 }
 
 /* opcional: logo menor no rodapé */
