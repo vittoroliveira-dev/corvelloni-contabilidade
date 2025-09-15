@@ -1,9 +1,105 @@
-@layer components {
-    .c-article {
-        line-height: 1.7
-    }
+/* assets/css/components/_c-article.css */
+.c-article {
+    line-height: 1.7;
+    color: var(--color-text);
+    --measure: 70ch;
+}
 
-    .c-article h1 {
-        margin-bottom: var(--space-md)
+/* Ritmo vertical e títulos */
+.c-article :where(h2, h3, h4) {
+    margin-block-start: var(--space-lg)
+}
+
+.c-article :where(p, ul, ol, blockquote, pre, table, figure) {
+    margin-block-end: var(--space-md)
+}
+
+.c-article :where(h1, h2, h3, h4, h5, h6) {
+    text-wrap: balance;
+    scroll-margin-top: calc(var(--header-height, 72px) + var(--space-md))
+}
+
+/* Listas */
+.c-article :where(ul, ol) {
+    padding-inline-start: var(--space-md)
+}
+
+/* Links no conteúdo */
+.c-article a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+    transition: color .2s ease, text-decoration-thickness .2s ease;
+}
+
+@media (hover:hover) {
+    .c-article a:hover {
+        color: var(--color-primary-hover);
+        text-decoration-thickness: 2px
     }
+}
+
+/* Citações */
+.c-article blockquote {
+    padding-inline-start: var(--space-md);
+    border-inline-start: 3px solid var(--color-primary);
+    font-style: italic;
+    color: var(--color-text-weak, var(--cor-texto-apoio));
+}
+
+/* Mídia e figuras */
+.c-article img,
+.c-article video {
+    max-inline-size: 100%;
+    block-size: auto;
+    border-radius: var(--radius-md)
+}
+
+.c-article figure {
+    margin: 0
+}
+
+.c-article figcaption {
+    margin-block-start: var(--space-sm);
+    font-size: var(--fs-300);
+    color: var(--color-text-weak, var(--cor-texto-apoio));
+    text-align: center;
+}
+
+/* Código */
+.c-article pre {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md);
+    overflow: auto;
+}
+
+.c-article code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+}
+
+/* Tabelas */
+.c-article table {
+    inline-size: 100%;
+    border-collapse: collapse
+}
+
+.c-article th,
+.c-article td {
+    border: 1px solid var(--color-border);
+    padding: var(--space-sm);
+    text-align: left
+}
+
+.c-article thead th {
+    background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+}
+
+/* Separador */
+.c-article hr {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin-block: var(--space-lg)
 }

@@ -1,14 +1,52 @@
-@layer components {
-    .c-brand {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-        font-weight: bold;
-        color: var(--color-brand)
-    }
+/* BRAND */
+.c-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    min-block-size: max(44px, var(--header-height-sm, 44px));
+    /* hit target */
+    line-height: 1;
+    padding-inline: 0;
+    color: var(--color-text);
+    font-size: var(--fs-500);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity .2s ease, color .2s ease;
+}
 
-    .c-brand__logo {
-        width: 2rem;
-        height: 2rem
-    }
+.c-brand:hover {
+    opacity: .88
+}
+
+.c-brand:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* Logo */
+.c-brand__logo {
+    display: block;
+    block-size: var(--brand-logo-size, 32px);
+    inline-size: auto;
+    flex: 0 0 auto;
+}
+
+/* Se usar SVG inline, herda a cor do texto */
+.c-brand__logo svg {
+    display: block;
+    inline-size: auto;
+    block-size: 100%;
+    fill: currentColor
+}
+
+/* Texto opcional da marca */
+.c-brand__text {
+    letter-spacing: .01em
+}
+
+/* Variante compacta (ex.: mobile muito estreito) */
+.c-brand--compact .c-brand__text {
+    display: none
 }

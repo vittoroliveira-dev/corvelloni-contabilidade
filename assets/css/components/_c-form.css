@@ -1,20 +1,116 @@
-@layer components {
-    .c-form {
-        display: grid;
-        gap: var(--space-md)
-    }
+/* FORM */
+.c-form {
+    display: block
+}
 
-    .c-form__row {
-        display: flex;
-        flex-direction: column
-    }
+.c-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
 
-    .c-form__row label {
-        margin-bottom: var(--space-xs)
-    }
+.c-form__label {
+    font-size: var(--fs-400);
+    font-weight: 600;
+    color: var(--color-text);
+}
 
-    .c-form__row input {
-        padding: var(--space-sm);
-        border: 1px solid var(--color-border)
-    }
+.c-form__hint {
+    font-size: var(--fs-300);
+    color: var(--color-text-weak, var(--cor-texto-apoio));
+}
+
+.c-form__error {
+    color: var(--color-danger)
+}
+
+.c-form__success {
+    color: var(--color-success)
+}
+
+/* Controles base */
+.c-form__control,
+.c-form__input,
+.c-form__select,
+.c-form__textarea {
+    inline-size: 100%;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+    font-size: var(--fs-500);
+    transition: var(--transition-base);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.c-form__control::placeholder,
+.c-form__input::placeholder,
+.c-form__textarea::placeholder {
+    color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+/* Foco acessível */
+.c-form__control:focus-visible,
+.c-form__input:focus-visible,
+.c-form__select:focus-visible,
+.c-form__textarea:focus-visible {
+    border-color: var(--color-primary);
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 22%, transparent);
+}
+
+/* Estados */
+.c-form__control[aria-invalid="true"],
+.c-form__input[aria-invalid="true"],
+.c-form__select[aria-invalid="true"],
+.c-form__textarea[aria-invalid="true"],
+.c-form__group.is-invalid .c-form__control {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-danger) 18%, transparent);
+}
+
+.c-form__group.is-valid .c-form__control {
+    border-color: var(--color-success);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) 18%, transparent);
+}
+
+.c-form__control:disabled,
+.c-form__input:disabled,
+.c-form__select:disabled,
+.c-form__textarea:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    background: color-mix(in srgb, var(--color-surface) 60%, var(--color-bg));
+}
+
+/* Tipos comuns */
+.c-form__textarea {
+    min-block-size: 7.5rem;
+    resize: vertical
+}
+
+.c-form__select {
+    background-image: none
+}
+
+/* Checkboxes e radios (layout) */
+.c-form__checks {
+    display: grid;
+    gap: var(--space-sm)
+}
+
+.c-form__check {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.c-form__check input {
+    inline-size: 1.125rem;
+    block-size: 1.125rem
 }

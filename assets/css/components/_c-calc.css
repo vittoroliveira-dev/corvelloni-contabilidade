@@ -1,6 +1,113 @@
-@layer components {
-    .c-calc__result {
-        margin-top: var(--space-md);
-        font-weight: bold
+/* CALCULADORA */
+.c-calc {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Formulário */
+.c-calc__form {
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width:48em) {
+    .c-calc__form {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+.c-calc__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm)
+}
+
+.c-calc__group.is-full {
+    grid-column: 1 / -1
+}
+
+.c-calc__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: flex-start;
+    grid-column: 1 / -1;
+}
+
+/* Resultado */
+.c-calc__result {
+    margin-block-start: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--cor-fundo-branco);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    text-align: center;
+    display: grid;
+    gap: var(--space-sm);
+    justify-items: center;
+}
+
+.c-calc__result-label {
+    font-size: var(--fs-400);
+    color: var(--cor-texto-apoio);
+    font-weight: 600;
+}
+
+.c-calc__result-value {
+    font-size: var(--fs-800);
+    font-weight: 700;
+    color: var(--color-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Detalhamento opcional */
+.c-calc__breakdown {
+    width: 100%;
+    display: grid;
+    gap: var(--space-sm);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-block-start: var(--space-md);
+}
+
+.c-calc__item {
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    background: var(--primary-tint-6, var(--color-surface));
+    /* fallback */
+}
+
+@supports (color-mix(in srgb, black 0%, white 0%)) {
+    .c-calc__item {
+        background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface))
+    }
+}
+
+.c-calc__item dt {
+    font-size: var(--fs-300);
+    color: var(--cor-texto-apoio)
+}
+
+.c-calc__item dd {
+    margin: 0;
+    font-weight: 700
+}
+
+/* Estados */
+.is-loading .c-calc__result-value {
+    opacity: .35
+}
+
+.c-calc--compact {
+    padding: var(--space-md)
+}
+
+@media print {
+    .c-calc {
+        box-shadow: none;
+        background: #fff
     }
 }

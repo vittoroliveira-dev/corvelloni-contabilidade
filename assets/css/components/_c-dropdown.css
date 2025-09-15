@@ -1,13 +1,94 @@
-@layer components {
-    .c-dropdown__menu[hidden] {
-        display: none
-    }
+/* assets/css/components/_c-dropdown.css */
+.c-dropdown {
+    position: relative
+}
 
-    .c-dropdown__menu {
-        position: absolute;
-        background: var(--color-bg);
-        border: 1px solid var(--color-border);
-        padding: var(--space-sm);
-        z-index: var(--z-nav)
+/* MENU */
+.c-dropdown__menu {
+    position: absolute;
+    inset-block-start: calc(100% + var(--space-xs));
+    inset-inline-start: 0;
+    z-index: var(--z-popover, calc(var(--z-header, 1000) + 10));
+    min-inline-size: 12.5rem;
+    /* 200px */
+    max-inline-size: min(90vw, 24rem);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-xs);
+    margin: 0;
+    list-style: none;
+
+    /* animação */
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    pointer-events: auto;
+    transform-origin: top left;
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+    will-change: transform, opacity;
+}
+
+/* oculto com transição (mantém display:block) */
+.c-dropdown__menu[hidden] {
+    display: block;
+    /* sobrescreve [hidden]{display:none} */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(.98);
+}
+
+/* alinhamento à direita */
+.c-dropdown--end .c-dropdown__menu {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    transform-origin: top right;
+}
+
+/* ITENS */
+.c-dropdown__item {
+    margin: 0
+}
+
+.c-dropdown__link {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem .75rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+/* hover com fallback + color-mix */
+.c-dropdown__link:hover,
+.c-dropdown__link:focus-visible {
+    background: var(--surface-tint-6, var(--color-surface));
+    color: var(--color-primary);
+}
+
+@supports (color-mix(in srgb, black 0%, white 0%)) {
+
+    .c-dropdown__link:hover,
+    .c-dropdown__link:focus-visible {
+        background: color-mix(in srgb, var(--color-primary) 6%, var(--color-bg));
     }
+}
+
+/* foco */
+.c-dropdown__link:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* separador opcional */
+.c-dropdown__separator {
+    height: 1px;
+    margin: var(--space-xs) 0;
+    background: var(--color-border);
 }

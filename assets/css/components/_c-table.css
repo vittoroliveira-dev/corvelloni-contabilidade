@@ -1,0 +1,131 @@
+/* TABLE — componente base */
+.c-table-wrap {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+}
+
+.c-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    min-inline-size: 48rem;
+    /* força scroll horizontal em telas estreitas */
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+/* Células */
+.c-table th,
+.c-table td {
+    padding: var(--space-sm) var(--space-md);
+    border-block-end: 1px solid var(--color-border);
+    vertical-align: top;
+}
+
+.c-table th {
+    text-align: left;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Cabeçalho */
+.c-table thead th {
+    background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+    position: relative;
+}
+
+/* Sticky header opcional quando o wrapper rola */
+.c-table--sticky thead th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+    box-shadow: inset 0 -1px 0 var(--color-border);
+}
+
+/* Zebra opcional */
+.c-table--zebra tbody tr:nth-child(odd) {
+    background: color-mix(in srgb, var(--color-primary) 4%, var(--color-bg));
+}
+
+/* Linhas hover (desktop) */
+@media (hover:hover) {
+    .c-table--hover tbody tr:hover {
+        background: color-mix(in srgb, var(--color-primary) 8%, var(--color-bg));
+    }
+}
+
+/* Números alinhados à direita */
+.c-table td[data-num],
+.c-table td.is-num,
+.c-table th.is-num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Status/tons fracos */
+.c-table .is-muted {
+    color: var(--color-text-weak, var(--cor-texto-apoio))
+}
+
+/* Caption */
+.c-table caption {
+    caption-side: top;
+    text-align: left;
+    padding: var(--space-sm) 0;
+    font-size: var(--fs-400);
+    font-weight: 700;
+}
+
+/* Tamanhos */
+.c-table--compact th,
+.c-table--compact td {
+    padding: calc(var(--space-sm) * .75) var(--space-sm)
+}
+
+/* Colunas estreitas utilitárias */
+.c-table .col-sm {
+    inline-size: 8rem
+}
+
+.c-table .col-md {
+    inline-size: 12rem
+}
+
+.c-table .col-lg {
+    inline-size: 16rem
+}
+
+/* Ordenação acessível com aria-sort */
+.c-table th[aria-sort] {
+    cursor: pointer
+}
+
+.c-table th[aria-sort="ascending"]::after {
+    content: "▲";
+    margin-inline-start: .35rem;
+    font-size: .75em;
+    opacity: .8;
+}
+
+.c-table th[aria-sort="descending"]::after {
+    content: "▼";
+    margin-inline-start: .35rem;
+    font-size: .75em;
+    opacity: .8;
+}
+
+/* Última linha sem borda */
+.c-table tbody tr:last-child>* {
+    border-block-end: 0
+}
+
+/* Impressão: remove sombras no wrap (redundante se _print.css ativo) */
+@media print {
+    .c-table-wrap {
+        box-shadow: none;
+        border-color: #000
+    }
+}

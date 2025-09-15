@@ -1,12 +1,97 @@
-@layer components {
-    .c-card {
-        border: 1px solid var(--color-border);
-        padding: var(--space-md);
-        border-radius: 4px;
-        background: var(--color-surface)
-    }
+/* assets/css/components/_c-card.css */
+.c-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+}
 
-    .c-card__title {
-        margin-bottom: var(--space-sm)
+/* interação só quando for cartão clicável */
+.c-card--interactive {
+    cursor: pointer;
+}
+
+@media (hover:hover) {
+    .c-card--interactive:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
     }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .c-card--interactive:hover {
+        transform: none
+    }
+}
+
+/* mídia opcional */
+.c-card__media {
+    overflow: hidden;
+    border-radius: calc(var(--radius-md) - 2px);
+}
+
+.c-card__media img {
+    inline-size: 100%;
+    block-size: auto;
+    display: block;
+}
+
+/* conteúdo */
+.c-card__title {
+    font-size: var(--fs-700);
+    color: var(--color-text);
+}
+
+.c-card__text {
+    color: var(--color-text-weak, var(--cor-texto-apoio));
+}
+
+/* link expandido (stretched link) */
+.c-card .u-stretched-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+.c-card:has(.u-stretched-link:focus-visible) {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* links internos comuns */
+.c-card a:not(.u-stretched-link) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (hover:hover) {
+    .c-card a:not(.u-stretched-link):hover {
+        color: var(--color-primary-hover);
+    }
+}
+
+/* rodapé opcional */
+.c-card__footer {
+    margin-block-start: auto;
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+/* variantes */
+.c-card--compact {
+    padding: var(--space-sm)
+}
+
+.c-card--flat {
+    box-shadow: none
 }

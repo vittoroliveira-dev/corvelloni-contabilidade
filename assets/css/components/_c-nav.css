@@ -1,31 +1,100 @@
-@layer components {
-    .c-nav {
-        display: flex;
-        gap: var(--space-md)
-    }
+/* components/_c-nav.css — link */
+.c-nav__link {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    min-block-size: 44px;
+    /* hit target */
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color .2s ease, color .2s ease, outline-color .2s ease;
+}
 
+/* hover + ativo (fallback primeiro) */
+.c-nav__link:is(:hover, [aria-current="page"], .is-active) {
+    background-color: var(--primary-tint-12, var(--color-surface));
+    /* fallback */
+    color: var(--color-primary);
+}
+
+@supports (color-mix(in srgb, black 0%, white 0%)) {
+    .c-nav__link:is(:hover, [aria-current="page"], .is-active) {
+        background-color: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+    }
+}
+
+/* aberto (dropdown) */
+.c-nav__link[aria-expanded="true"] {
+    color: var(--color-primary);
+    background-color: var(--primary-tint-12, var(--color-surface));
+}
+
+@supports (color-mix(in srgb, black 0%, white 0%)) {
+    .c-nav__link[aria-expanded="true"] {
+        background-color: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+    }
+}
+
+/* foco */
+.c-nav__link:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+/* desabilitado */
+.c-nav__link[aria-disabled="true"] {
+    opacity: .5;
+    pointer-events: none;
+}
+
+/* ícones opcionais embutidos */
+.c-nav__link>.c-icon {
+    inline-size: 1em;
+    block-size: 1em;
+    flex: 0 0 auto;
+}
+
+/* Estilos do Menu Mobile - por padrão, ele fica escondido */
+@media (max-width: 767px) {
+  .c-nav__menu {
+    position: absolute;
+    top: 100%; /* Posiciona logo abaixo do header */
+    left: 0;
+    right: 0;
+    
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-md);
+    
+    /* Animação */
+    transform: translateY(-100%);
+    transition: transform var(--transition-base), visibility var(--transition-base);
+    visibility: hidden;
+  }
+  
+  /* Quando o menu mobile está aberto */
+  .c-nav.is-mobile-menu-open .c-nav__menu {
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  .c-nav__menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+}
+
+/* Esconde o botão de toggle em telas maiores */
+@media (min-width: 768px) {
     .c-nav__toggle {
         display: none;
-        background: none;
-        border: 0
-    }
-
-    @media(max-width:64em) {
-        .c-nav__toggle {
-            display: block
-        }
-
-        .c-nav__menu {
-            display: none;
-            position: absolute;
-            inset: var(--header-height) 0 auto;
-            z-index: var(--z-nav);
-            background: var(--color-bg);
-            padding: var(--space-md)
-        }
-
-        .c-nav.is-open .c-nav__menu {
-            display: block
-        }
     }
 }
