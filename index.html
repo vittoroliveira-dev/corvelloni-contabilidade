@@ -38,7 +38,9 @@
             </a>
 
             <nav id="primary-navigation" class="c-nav" aria-label="Navegação primária" data-js="nav">
-                <ul class="c-nav__list">
+                <button class="c-nav__toggle" type="button" aria-expanded="false"
+                    aria-controls="menu-principal">Menu</button>
+                <ul id="menu-principal" class="c-nav__list">
                     <li class="c-nav__item c-nav__item--has-dropdown">
                         <button class="c-nav__link" id="menu-servicos" type="button" aria-haspopup="menu"
                             aria-expanded="false" aria-controls="dropdown-servicos">
@@ -105,7 +107,7 @@
                     </ul>
                 </div>
                 <figure class="c-hero__media">
-                    <img src="assets/img/hero-illustration.webp" alt="" width="640" height="480" loading="eager"
+                    <img src="assets/img/webp/hero-illustration.webp" alt="" width="640" height="480" loading="eager"
                         decoding="async">
                 </figure>
             </div>
@@ -192,12 +194,12 @@
                 <p class="c-footer__text">Contabilidade online para PJ.</p>
             </div>
 
-            <nav class="c-footer__nav" aria-label="Rodapé">
-                <ul class="c-nav__list">
-                    <li><a class="c-nav__link" href="como-funciona.html">Como funciona</a></li>
-                    <li><a class="c-nav__link" href="quem-somos.html">Quem somos</a></li>
-                    <li><a class="c-nav__link" href="conteudo/blog/">Blog</a></li>
-                    <li><a class="c-nav__link" href="contato.html">Contato</a></li>
+            <nav class="c-footer__nav" aria-label="Rodapé">␊
+                <ul class="c-footer__menu">
+                    <li><a class="c-footer__link" href="como-funciona.html">Como funciona</a></li>
+                    <li><a class="c-footer__link" href="quem-somos.html">Quem somos</a></li>
+                    <li><a class="c-footer__link" href="conteudo/blog/">Blog</a></li>
+                    <li><a class="c-footer__link" href="contato.html">Contato</a></li>
                 </ul>
             </nav>
         </div>
