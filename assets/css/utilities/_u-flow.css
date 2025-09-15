@@ -1,5 +1,17 @@
-@layer utilities {
-    .u-flow>*+* {
-        margin-top: var(--flow-space, var(--space-md))
-    }
+/* assets/css/utilities/_u-flow.css */
+.u-flow>*+* {
+    margin-block-start: var(--flow-space, var(--space-md));
+}
+
+/* Modificadores de espaçamento (opcionais) */
+.u-flow--sm {
+    --flow-space: var(--space-sm);
+}
+
+.u-flow--lg {
+    --flow-space: var(--space-lg);
+}
+
+.u-flow--xl {
+    --flow-space: var(--space-xl);
 }

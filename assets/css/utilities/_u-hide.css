@@ -1,5 +1,9 @@
-@layer utilities {
-    .u-hide {
-        display: none !important
-    }
+/* assets/css/utilities/_u-hide.css */
+.u-hide {
+    display: none;
+}
+
+/* Normaliza o atributo nativo */
+[hidden] {
+    display: none;
 }
