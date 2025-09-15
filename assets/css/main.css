@@ -1,5 +1,5 @@
-@layer base,objects,components,utilities;
-@import url('./base/_settings.css') layer(base);
+@layer tokens, base, objects, components, utilities;
+@import url('./base/_settings.css') layer(tokens);
 @import url('./base/_normalize.css') layer(base);
 @import url('./base/_typography.css') layer(base);
 @import url('./objects/_o-container.css') layer(objects);
