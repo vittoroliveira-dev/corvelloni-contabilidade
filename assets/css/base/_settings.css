@@ -75,6 +75,7 @@
   --fs-800:var(--tamanho-h2);
   --fs-900:var(--tamanho-h1);
 
+  --space-xs:var(--espacamento-xs);
   --space-sm:var(--espacamento-sm);
   --space-md:var(--espacamento-md);
   --space-lg:var(--espacamento-lg);
