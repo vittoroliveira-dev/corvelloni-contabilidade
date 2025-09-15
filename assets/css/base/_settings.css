@@ -1,25 +1,97 @@
-@layer tokens {
-  :root {
-    --color-bg: #ffffff;
-    --color-text: #0a0a0a;
-    --color-brand: #0052e0;
-    --color-accent: #00b0a6;
-    --color-border: #e5e7eb;
-    --color-surface: #fafafa;
-    --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
-    --fs-900: clamp(2.2rem, 3vw, 3rem);
-    --fs-700: 1.25rem;
-    --fs-400: 1rem;
-    --space-xs: .25rem;
-    --space-sm: .5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --header-height: 4rem;
-    --z-base: 0;
-    --z-header: 100;
-    --z-nav: 200;
-    --z-overlay: 1000;
-    --z-modal: 1100;
-  }
+:root{
+  /* CORES */
+  --cor-primaria:#A92534;
+  --cor-primaria-hover:#8e1f2b;
+  --cor-texto-principal:#222222;
+  --primary-tint-12: #f7eaec;
+
+  --cor-texto-apoio:#555555;
+  --cor-borda:#E2E8F0;
+  --cor-fundo-claro:#F8F9FA;
+  --cor-fundo-branco:#FFFFFF;
+
+  --cor-sucesso:#00A859;
+  --cor-aviso:#FFC107;
+  --cor-erro:#D32F2F;
+  
+
+  /* TIPOGRAFIA */
+  --fonte-principal:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+  --tamanho-fonte-base:clamp(16px,1.1vw,18px);
+  --tamanho-xs:.75rem;
+  --tamanho-sm:.875rem;
+  --tamanho-md:1rem;
+  --tamanho-lg:1.125rem;
+  --tamanho-xl:1.25rem;
+  --tamanho-h3:1.5rem;
+  --tamanho-h2:2rem;
+  --tamanho-h1:clamp(2.5rem,5vw + 1rem,4rem);
+
+  /* ESPAÇAMENTO E LAYOUT */
+  --espacamento-base:1rem;
+  --espacamento-xs:calc(var(--espacamento-base)*.5);
+  --espacamento-sm:calc(var(--espacamento-base)*.75);
+  --espacamento-md:calc(var(--espacamento-base)*1.5);
+  --espacamento-lg:calc(var(--espacamento-base)*2);
+  --espacamento-xl:calc(var(--espacamento-base)*4);
+
+  --largura-container:1140px;
+  --padding-container:var(--espacamento-md);
+
+  /* HEADER */
+  --header-height:72px;
+  --header-height-sm:64px;
+  --z-header:1000;
+
+  /* UI */
+  --raio-borda:8px;
+  --transicao-padrao:all .25s ease-in-out;
+  --sombra-sutil:0 2px 4px rgba(0,0,0,.05);
+  --sombra-card:0 4px 12px rgba(0,0,0,.1);
+  --sombra-card-hover:0 8px 20px rgba(0,0,0,.12);
+
+  /* ALIASES → usados pelo resto do código */
+  --color-bg:var(--cor-fundo-branco);
+  --color-surface:var(--cor-fundo-claro);
+  --color-text:var(--cor-texto-principal);
+  --color-border:var(--cor-borda);
+
+  --color-primary:var(--cor-primaria);
+  --color-primary-hover:var(--cor-primaria-hover);
+  --color-success:var(--cor-sucesso);
+  --color-warning:var(--cor-aviso);
+  --color-danger:var(--cor-erro);
+  --color-focus:var(--color-primary);
+
+  --font-sans:var(--fonte-principal);
+
+  /* escala usada nos arquivos base/components */
+  --fs-300:var(--tamanho-sm);
+  --fs-400:var(--tamanho-fonte-base);
+  --fs-500:var(--tamanho-lg);
+  --fs-600:var(--tamanho-xl);
+  --fs-700:var(--tamanho-h3);
+  --fs-800:var(--tamanho-h2);
+  --fs-900:var(--tamanho-h1);
+
+  --space-sm:var(--espacamento-sm);
+  --space-md:var(--espacamento-md);
+  --space-lg:var(--espacamento-lg);
+  --space-xl:var(--espacamento-xl);
+
+  --radius-sm:calc(var(--raio-borda)*.5);
+  --radius-md:var(--raio-borda);
+
+  --shadow-sm:var(--sombra-sutil);
+  --shadow-md:var(--sombra-card);
+  --shadow-lg:var(--sombra-card-hover);
+
+  --container-max:var(--largura-container);
+  --container-padding:var(--padding-container);
+
+  --transition-base:var(--transicao-padrao);
+
+  --z-base:0;
+  --z-nav: 900;
 }

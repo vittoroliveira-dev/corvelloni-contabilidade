@@ -1,3 +1,94 @@
-h1{font-size:var(--fs-900);margin:0 0 var(--space-md)}
-h2{font-size:var(--fs-700);margin:0 0 var(--space-md)}
-body{font-size:var(--fs-400)}
+/* Tipografia base — 2025 */
+html {
+    font-size: 100%
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    font-size: var(--fs-400);
+    line-height: 1.6;
+}
+
+/* Títulos */
+:where(h1, h2, h3, h4, h5, h6) {
+    margin-block: 0 var(--space-md, 1rem);
+    line-height: 1.2;
+    font-weight: 700;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--fs-900, clamp(2.25rem, 4vw, 3.5rem))
+}
+
+h2 {
+    font-size: var(--fs-800, clamp(1.75rem, 3vw, 2.5rem))
+}
+
+h3 {
+    font-size: var(--fs-700, clamp(1.5rem, 2.2vw, 2rem))
+}
+
+h4 {
+    font-size: var(--fs-600, clamp(1.25rem, 1.6vw, 1.5rem))
+}
+
+h5 {
+    font-size: var(--fs-500, 1.125rem)
+}
+
+h6 {
+    font-size: var(--fs-450, 1rem)
+}
+
+/* Texto e medida */
+p {
+    max-inline-size: var(--measure, 65ch)
+}
+
+small {
+    font-size: var(--fs-300, .875rem)
+}
+
+strong {
+    font-weight: 700
+}
+
+em,
+i {
+    font-style: italic
+}
+
+/* Listas */
+:where(ul, ol) {
+    padding-inline-start: 1.25rem;
+    margin-block: 0 var(--space-md, 1rem)
+}
+
+:where(li) {
+    margin-block: .25rem
+}
+
+/* Links */
+a:hover,
+a:focus-visible {
+    text-decoration: underline
+}
+
+/* Código */
+code,
+kbd,
+pre,
+samp {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: .95em;
+}
+
+pre {
+    overflow: auto;
+    padding: var(--space-sm, .5rem);
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: var(--radius-sm, .375rem)
+}
