@@ -1,29 +1,58 @@
 /* assets/css/components/_c-header.css */
-  .c-header{
-    position: sticky; top:0; inline-size:100%;
-    display:flex; align-items: center;
-    gap:var(--space-lg);
-    z-index: var(--z-header,1000);
-    background: var(--header-bg, var(--color-bg));
+.c-header {
+    position: sticky;
+    inset-block-start: 0;
+    inline-size: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: var(--z-header, 1000);
+    background-color: var(--header-bg, var(--color-bg));
     border-bottom: 1px solid var(--color-border);
     -webkit-tap-highlight-color: transparent;
-    transition: background-color .25s ease, border-color .25s ease, backdrop-filter .25s ease;
-  }
-  /* efeito vidro quando houver suporte */
-  @supports (backdrop-filter: blur(8px)){
-    .c-header{ backdrop-filter: blur(8px) }
-  }
-   /* variante sólida forçada */
-  .c-header--solid{ --header-bg: var(--color-bg); backdrop-filter: none }
+    transition: background-color var(--transition-base, .25s ease),
+        border-color var(--transition-base, .25s ease),
+        backdrop-filter var(--transition-base, .25s ease),
+        box-shadow var(--transition-base, .25s ease);
+}
 
-  /* container interno */
-  .c-header__inner{
-    min-block-size: var(--header-height-sm,64px);
-    max-inline-size: var(--container-max);
-    padding-inline: var(--container-padding);
-    margin-inline:auto;
-    display:flex; align-items:center; justify-content:space-between; gap: var(--space-md);
-  }
-  @media (min-width:48em){
-    .c-header__inner{ min-block-size: var(--header-height,72px) }
-  }
+@supports (color-mix(in srgb, white 0%, black 0%)) {
+    .c-header {
+        --header-bg: color-mix(in srgb, var(--color-bg) 88%, transparent);
+        border-color: color-mix(in srgb, var(--color-border) 65%, transparent);
+    }
+}
+
+@supports (backdrop-filter: blur(12px)) {
+    .c-header {
+        backdrop-filter: blur(12px);
+    }
+}
+
+.c-header.is-scrolled,
+.c-header--solid {
+    --header-bg: var(--color-bg);
+    border-color: var(--color-border);
+    backdrop-filter: none;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, .08);
+}
+
+.c-header__inner {
+    inline-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    min-block-size: var(--header-height-sm, 64px);
+}
+
+@media (min-width: 48em) {
+    .c-header__inner {
+        min-block-size: var(--header-height, 72px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .c-header {
+        transition: none;
+    }
+}
