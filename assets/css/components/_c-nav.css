@@ -1,100 +1,70 @@
-/* components/_c-nav.css — link */
+/* Navegação principal */
+.c-nav {
+    margin-inline-start: auto;
+    flex: 1 1 auto;
+    position: relative;
+    z-index: var(--z-nav, 900)
+}
+
+.c-nav__list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(12px, 2.5vw, 24px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 960px){
+  .c-nav__list{ flex-wrap:wrap; justify-content:flex-start } /* pode quebrar no mobile */
+}
+
+.c-nav__item--has-dropdown {
+    position: relative
+}
+
 .c-nav__link {
     display: inline-flex;
     align-items: center;
-    gap: .35rem;
+    gap: .375rem;
     min-block-size: 44px;
-    /* hit target */
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-md);
     color: var(--color-text);
     font-weight: 600;
     text-decoration: none;
-    white-space: nowrap;
     -webkit-tap-highlight-color: transparent;
-    transition: background-color .2s ease, color .2s ease, outline-color .2s ease;
+    transition: var(--transition-base);
 }
 
-/* hover + ativo (fallback primeiro) */
-.c-nav__link:is(:hover, [aria-current="page"], .is-active) {
-    background-color: var(--primary-tint-12, var(--color-surface));
-    /* fallback */
-    color: var(--color-primary);
-}
-
-@supports (color-mix(in srgb, black 0%, white 0%)) {
-    .c-nav__link:is(:hover, [aria-current="page"], .is-active) {
-        background-color: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
-    }
-}
-
-/* aberto (dropdown) */
-.c-nav__link[aria-expanded="true"] {
+/* hover / página atual / dropdown aberto */
+.c-nav__link:is(:hover, [aria-current="page"], [aria-expanded="true"]) {
     color: var(--color-primary);
     background-color: var(--primary-tint-12, var(--color-surface));
 }
 
 @supports (color-mix(in srgb, black 0%, white 0%)) {
-    .c-nav__link[aria-expanded="true"] {
+    .c-nav__link:is(:hover, [aria-current="page"], [aria-expanded="true"]) {
         background-color: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
     }
 }
 
-/* foco */
-.c-nav__link:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 2px;
-}
-
-/* desabilitado */
-.c-nav__link[aria-disabled="true"] {
-    opacity: .5;
-    pointer-events: none;
-}
-
-/* ícones opcionais embutidos */
+/* ícone dentro do link */
 .c-nav__link>.c-icon {
-    inline-size: 1em;
-    block-size: 1em;
-    flex: 0 0 auto;
+    inline-size: 1.2em;
+    block-size: 1.2em
 }
 
-/* Estilos do Menu Mobile - por padrão, ele fica escondido */
-@media (max-width: 767px) {
-  .c-nav__menu {
-    position: absolute;
-    top: 100%; /* Posiciona logo abaixo do header */
-    left: 0;
-    right: 0;
-    
-    background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    box-shadow: var(--shadow-md);
-    padding: var(--space-md);
-    
-    /* Animação */
-    transform: translateY(-100%);
-    transition: transform var(--transition-base), visibility var(--transition-base);
-    visibility: hidden;
-  }
-  
-  /* Quando o menu mobile está aberto */
-  .c-nav.is-mobile-menu-open .c-nav__menu {
-    transform: translateY(0);
-    visibility: visible;
-  }
-  
-  .c-nav__menu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-sm);
-  }
+.c-nav__link[aria-expanded="true"] .c-icon--dropdown {
+    transform: rotate(180deg);
+    transition: transform var(--transition-base);
 }
 
-/* Esconde o botão de toggle em telas maiores */
-@media (min-width: 768px) {
-    .c-nav__toggle {
-        display: none;
+/* opcional: reduzir espaçamento no mobile */
+@media (max-width:960px) {
+    .c-nav__list {
+        gap: 12px
     }
 }
