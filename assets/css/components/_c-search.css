@@ -1,0 +1,2 @@
+.c-search{display:flex;gap:var(--space-sm)}
+.c-search__input{flex:1;padding:var(--space-sm);border:1px solid var(--color-border)}
