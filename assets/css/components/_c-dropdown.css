@@ -65,3 +65,25 @@
         transform: none
     }
 }
+/* dropdown dentro de nav */
+@media (max-width: 60em) {
+    .c-nav .c-dropdown {
+        position: static;
+        inset: auto;
+        max-inline-size: none;
+        min-inline-size: 100%;
+        margin-block-start: var(--space-xs, .5rem);
+        padding: var(--space-xs, .5rem) 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+    .c-nav .c-dropdown[hidden] {
+        display: none;
+    }
+
+    .c-nav .c-dropdown__item {
+        border-radius: var(--radius-md);
+        padding-inline: var(--space-md);
+    }
