@@ -18,24 +18,21 @@
 /* logo (SVG ou IMG) */
 .c-brand__logo {
     display: block;
-    block-size: var(--header-height-sm,64px);
-    transform: scale(1.25);
-    transform-origin: left center;
-    flex: 0 0 auto;
-    align-items: left;
-    inline-size:auto;
-    /* header */
-    block-size:164px;
+    inline-size: auto;
+    max-block-size: clamp(48px, 8vw, var(--header-height, 72px));
 }
 
 /* opcional: maior só no desktop */
 @media (min-width:48em){
-  .c-brand__logo{ block-size: var(--header-height,72px); transform: scale(1.2) }
+    .c-brand__logo {
+        max-block-size: clamp(56px, 7vw, var(--header-height, 72px));
+    }
 }
 
 /* opcional: logo menor no rodapé */
 .c-footer .c-brand__logo {
-    inline-size: 96px
+    max-inline-size: 96px;
+    max-block-size: none;
 }
 
 /* texto opcional da marca */
