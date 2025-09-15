@@ -1,4 +1,13 @@
 [
- {"uf":"SP","natureza":"ME","porte":"ME","taxas":1000,"servicos":500,"prazo":10},
- {"uf":"RJ","natureza":"ME","porte":"ME","taxas":1200,"servicos":600,"prazo":15}
+  { "uf": "SP", "natureza": "ME", "taxas": 1000, "servicos": 500, "prazo": 10 },
+  { "uf": "RJ", "natureza": "ME", "taxas": 1200, "servicos": 600, "prazo": 15 },
+  { "uf": "MG", "natureza": "ME", "taxas": 950, "servicos": 550, "prazo": 12 },
+  { "uf": "PR", "natureza": "ME", "taxas": 850, "servicos": 450, "prazo": 8 },
+  { "uf": "RS", "natureza": "ME", "taxas": 900, "servicos": 500, "prazo": 10 },
+  { "uf": "SC", "natureza": "ME", "taxas": 880, "servicos": 480, "prazo": 7 },
+  { "uf": "BA", "natureza": "ME", "taxas": 1100, "servicos": 580, "prazo": 18 },
+  { "uf": "ES", "natureza": "ME", "taxas": 920, "servicos": 520, "prazo": 11 },
+  { "uf": "DF", "natureza": "ME", "taxas": 1050, "servicos": 550, "prazo": 14 },
+  { "uf": "PE", "natureza": "ME", "taxas": 980, "servicos": 530, "prazo": 16 },
+  { "uf": "GO", "natureza": "ME", "taxas": 960, "servicos": 540, "prazo": 13 }
 ]
