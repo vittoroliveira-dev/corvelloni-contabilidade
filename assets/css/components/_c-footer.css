@@ -1,2 +1,14 @@
-.c-footer{padding:var(--space-lg) 0;background:var(--color-surface);margin-top:var(--space-xl)}
-.c-footer__inner{display:flex;flex-direction:column;align-items:center;gap:var(--space-sm)}
+@layer components {
+    .c-footer {
+        padding: var(--space-lg) 0;
+        background: var(--color-surface);
+        margin-top: var(--space-xl)
+    }
+
+    .c-footer__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm)
+    }
+}

@@ -1,4 +1,20 @@
-.c-form{display:grid;gap:var(--space-md)}
-.c-form__row{display:flex;flex-direction:column}
-.c-form__row label{margin-bottom:var(--space-xs)}
-.c-form__row input{padding:var(--space-sm);border:1px solid var(--color-border)}
+@layer components {
+    .c-form {
+        display: grid;
+        gap: var(--space-md)
+    }
+
+    .c-form__row {
+        display: flex;
+        flex-direction: column
+    }
+
+    .c-form__row label {
+        margin-bottom: var(--space-xs)
+    }
+
+    .c-form__row input {
+        padding: var(--space-sm);
+        border: 1px solid var(--color-border)
+    }
+}

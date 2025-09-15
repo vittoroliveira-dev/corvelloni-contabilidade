@@ -1,1 +1,6 @@
-.c-calc__result{margin-top:var(--space-md);font-weight:bold}
+@layer components {
+    .c-calc__result {
+        margin-top: var(--space-md);
+        font-weight: bold
+    }
+}

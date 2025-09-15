@@ -1,2 +1,14 @@
-.c-brand{display:flex;align-items:center;gap:var(--space-sm);font-weight:bold;color:var(--color-brand)}
-.c-brand__logo{width:2rem;height:2rem}
+@layer components {
+    .c-brand {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        font-weight: bold;
+        color: var(--color-brand)
+    }
+
+    .c-brand__logo {
+        width: 2rem;
+        height: 2rem
+    }
+}
