@@ -45,7 +45,7 @@
     padding-inline-start: var(--space-md);
     border-inline-start: 3px solid var(--color-primary);
     font-style: italic;
-    color: var(--color-text-weak, var(--cor-texto-apoio));
+    color: var(--color-text-weak);
 }
 
 /* Mídia e figuras */
@@ -63,7 +63,7 @@
 .c-article figcaption {
     margin-block-start: var(--space-sm);
     font-size: var(--fs-300);
-    color: var(--color-text-weak, var(--cor-texto-apoio));
+    color: var(--color-text-weak);
     text-align: center;
 }
 
