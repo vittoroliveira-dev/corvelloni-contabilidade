@@ -1,115 +1,101 @@
-# Corvelloni Contabilidade
-Static institutional website with calculators and a content hub. Deploy via GitHub Pages from `/docs`.
+### Codex compatibility (READ-ONLY, NO COMMANDS)
 
-## Requirements
-- Windows with PowerShell
-- Node.js LTS ≥ 18 and npm ≥ 9
+- Operate in advice/edit mode only. **Do not run commands, do not browse, do not start background tasks.**
+- Goal: polish **visual structure, responsiveness, accessibility, and SEO** to resemble **Contabilizei.com.br**, while keeping all **UI/SEO copy in PT-BR**.
 
-## Installation (Windows)
-~~~powershell
-winget install OpenJS.NodeJS.LTS
-cd "C:\Users\SEU_USUARIO\Downloads\corvelloni contabilidade"
-npm ci
-~~~
+### Scope
 
-## Scripts
-~~~powershell
-npm run dev       # local dev server
-npm run build     # outputs production files to /docs
-npm run preview   # preview production build at http://localhost:4173
-npm run lint      # lint HTML, CSS, JS
-npm run check     # lint + build
-~~~
+- Sources only: root HTML pages; `assets/css/**` (ITCSS+BEM), `assets/js/**` (ES Modules), `assets/img|svg|icons/**`, `site.webmanifest`, `robots.txt`, `sitemap.xml`.
+- No framework changes, no dependency/tool changes, no build config changes.
 
-## GitHub Pages
-- Settings → Pages → Source: Deploy from a branch.
-- Branch: `main`. Folder: `/docs`.
-- `.nojekyll` is included to prevent Jekyll processing.
+### Visual system
 
-## Important: The `/docs` folder (agent blackout)
+```css
+:root{
+  --color-primary-050: #e9f1ff;
+  --color-primary-500: #a63238;
+  --color-primary-600: #8b2c37;
+  --color-neutral-900: #111827; /* corrected token name (must start with --) */
+}
+```
+1. Use tokens only; no hard-coded hex in components.
+- Layout: mobile-first, fluid grid, no horizontal scroll.
+- Breakpoints (min-width): 360, 375, 414, 768, 1024, 1280+ px.
+- Sections (landing pattern): Header+CTA · Hero (H1+benefit+CTA) · Trust bar · Benefits (3–6) · Calculators hub · Testimonials (opt) · FAQ · Footer.
 
-- Status: `/docs` is a **build artifact** written by `npm run build`. It is **write-only**.
-- Absolute prohibition: Agents **MUST NOT** read, list, search, lint, validate, diff, embed, or reference **any** file under `/docs`.
-- No modifications: Agents **MUST NOT** create, edit, delete, move, or rename files in `/docs`.
-- Ignore in analysis: Treat `/docs` as **non-existent** for analysis, QA, refactors, prompts, and context.
-- Source of truth: Work **only** on source files (root HTML; `/assets`; `/calc`; `/duvidas`; `/ajuda`; configs).
-- Build step: Update `/docs` **only** via `npm run build`, then commit the generated output **without manual edits**.
-- Enforcement: If any tool tries to touch `/docs`, **abort** that step, switch to sources, and note the **docs-blackout** rule in the PR.
+## SEO RULES (PT-BR)
 
-Acceptance checks:
-- `/docs` not used as input anywhere.
-- No lints or validators run on `/docs`.
-- Final diff contains changes to sources + regenerated `/docs` only.
+1. <html lang="pt-BR">; unique <title> and <meta name="description"> per page.
+2. Absolute rel="canonical".
+3. OG/Twitter complete; valid JSON-LD (Organization, Website, LocalBusiness/JobPosting when applicable) with PT-BR text.
 
-## Structure (high level)
-- `/assets` CSS, JS, images, icons
-- `/duvidas` searchable articles
-- `/ajuda` help center
-- `/calc` calculators
-- `/docs` production build (GitHub Pages output)
-~~~txt
+## ACCESSIBILITY
+
+- Semantic landmarks; visible focus (:focus-visible); keyboard menus with aria-expanded + [hidden]; targets ≥44px; contrast AA; skip link; respect prefers-reduced-motion.
+
+###  PERFORMANCE TARGETS (no tooling required here)
+
+1. LCP ≤ 2.5 s, INP < 200 ms, CLS < 0.1 on key pages.
+2. Minimal critical CSS; external CSS early.
+3. Lean JS; remove dead code.
+4. Images with srcset/sizes, explicit width/height, loading="lazy" + decoding="async" outside heroes; fonts with font-display: swap.
+
+### Output requirements
+
+1. Return: findings by category: SEO, A11y, Performance, CSS Architecture, JS, Content.
+2. Provide unified diffs or full code blocks with exact file paths, plus a short rationale and manual test steps (keyboard + breakpoints).
+3. Keep all user-facing copy in PT-BR.
+
+### Structure (high level)
+
 /
 ├─ index.html
 ├─ ajuda/
 ├─ calc/
-│  ├─ clt-vs-pj/
-│  ├─ custo-abrir-cnpj/
-│  ├─ fator-r/
-│  ├─ impostos-pj/
+│  ├─ salario-liquido/
 │  ├─ rescisao/
-│  └─ salario-liquido/
+│  ├─ impostos-pj/
+│  ├─ fator-r/
+│  ├─ custo-abrir-cnpj/
+│  └─ clt-vs-pj/
 ├─ duvidas/
 │  ├─ index.html
 │  ├─ como-abrir-empresa/
 │  └─ como-funciona-simples/
-├─ assets/ {css, js, img, icons}
+├─ assets/
+│  ├─ css/
+│  ├─ js/
+│  ├─ img/    # webp/avif/png as needed
+│  ├─ svg/
+│  └─ icons/
 ├─ data/
-├─ docs/
-├─ site.webmanifest, robots.txt, sitemap.xml, 404.html
-├─ vite.config.js
-├─ .eslintrc.json, .stylelintrc.json, .htmlhintrc, .nojekyll, .gitignore, .gitattributes
-├─ README.md
-└─ AGENTS.md
-~~~
+│  ├─ simples-faixas.json
+│  ├─ custos-abertura.json
+│  └─ br-tributos.json
 
-## Troubleshooting
+## CSS ARCHITECTURE RULES (ITCSS via assets/css/main.css)
 
-### Restore missing scripts (dev/build/lint/check)
-Run once:
-~~~powershell
-npm pkg set scripts.dev="vite"
-npm pkg set scripts.start="vite"
-npm pkg set scripts.build="vite build"
-npm pkg set scripts.preview="vite preview -s"
-npm pkg set scripts['lint:css']="stylelint \"assets/css/**/*.css\" --allow-empty-input"
-npm pkg set scripts['lint:js']="eslint \"assets/js/**/*.js\""
-npm pkg set scripts['lint:html']="htmlhint \"**/*.html\""
-npm pkg set scripts.lint="npm run lint:html && npm run lint:css && npm run lint:js"
-npm pkg set scripts.check="npm run lint && npm run build"
-~~~
+1. `/asset/sbase/_settings.css`
+2. `/asset/base/_normalize.css`
+3. `/asset/base/_typography.css`
+4. `/asset/base/_print.css`
+5. `/asset/objects/_o-container.css`
+6. `/asset/objects/_o-section.css`
+7. `/asset/components/_c-header.css`
+8. `/asset/components/_c-nav.css`
+9. `/asset/components/_c-hero.css`
+10. `/asset/components/_c-button.css`
+11. `/asset/components/_c-card.css`
+12. `/asset/components/_c-cookie-banner.css`
+13. `/asset/components/_c-footer.css`
+14. `/asset/utilities/_u-visually-hidden.css`
+15. `/asset/utilities/_u-text.css`
+16. `/asset/utilities/_u-spacing.css`
 
-### `npm run check` failing due to proxy or script
-~~~powershell
-npm config delete http-proxy
-npm config delete https-proxy
-npm pkg set scripts.check="npm run lint && npm run build"
-npm run check
-~~~
+## JS (ES MODULES) order:
 
-### `xdg-open ENOENT` on `npm run preview`
-- Cause: headless environment without GUI opener.
-- Quick fix: ignore the error and open the shown URL (e.g., `http://localhost:4173`) manually.
-- Permanent fix: remove auto-open.
-~~~json
-"preview": "vite preview -s"
-~~~
-
-## Language and commits policy
-- All **user-facing output must be in Brazilian Portuguese (PT-BR)**: error messages, PR descriptions, code comments, UI copy, and agent replies.
-- Commits follow **Conventional Commits**. Types in English (`feat`, `fix`, etc.). **Titles and bodies in PT-BR**.
-- Logs/commands may remain in English. Summaries and explanations end in **PT-BR**.
-
-### Examples
-- Commit: `feat: adiciona página "Como funciona" e links no header`
-- PR title: `Corrige dropdown do menu no mobile`
-- PR body: `Resumo, mudanças e como testar em PT-BR.`
+1. Single entry assets/js/app.js. Modules in `assets/js/modules/`.
+2. Global features = direct import; page-specific = conditional import().
+3. `/modules/cookie-consent.js`
+4. `/modules/navigation.js`
+5. `/modules/app-calculadoras`
