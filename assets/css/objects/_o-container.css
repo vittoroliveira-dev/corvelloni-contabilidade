@@ -1,40 +1,7 @@
-/* assets/css/objects/_o-container.css */
 @layer objects {
     .o-container {
-        inline-size: 100%;
-        max-inline-size: var(--container-max, 70rem);
+        width: min(100%, var(--container-max));
         margin-inline: auto;
-        padding-inline: var(--container-padding, var(--space-md, 1rem));
-    }
-
-    /* Modificadores opcionais */
-    .o-container--wide {
-        max-inline-size: var(--container-max-wide, 80rem);
-    }
-
-    .o-container--narrow {
-        max-inline-size: var(--container-max-narrow, 60rem);
-    }
-
-    .o-container--fluid {
-        max-inline-size: none;
-    }
-
-    /* Extras úteis */
-    .o-container--xl {
-        max-inline-size: var(--container-max-xl, 85rem);
-    }
-
-    .o-container--no-pad {
-        padding-inline: 0;
-    }
-
-    /* Bleed controlado para colar conteúdo a uma borda quando preciso */
-    .o-container--bleed-end {
-        margin-inline-end: calc(var(--bleed, 0px) * -1);
-    }
-
-    .o-container--bleed-start {
-        margin-inline-start: calc(var(--bleed, 0px) * -1);
+        padding-inline: clamp(var(--space-300), 5vw, var(--space-500));
     }
 }

@@ -1,0 +1,9 @@
+@layer objects {
+    .o-section {
+        padding-block: var(--space-600);
+    }
+
+    .o-section--tight {
+        padding-block: var(--space-500);
+    }
+}
