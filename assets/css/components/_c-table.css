@@ -31,12 +31,6 @@
     white-space: nowrap;
 }
 
-/* Tamanhos */
-.c-table--compact th,
-.c-table--compact td {
-    padding: calc(var(--space-sm) * .75) var(--space-sm)
-}
-
 /* Cabeçalho */
 .c-table thead th {
     background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
@@ -73,7 +67,7 @@
 
 /* Status/tons fracos */
 .c-table .is-muted {
-    color: var(--color-text-weak, var(--cor-texto-apoio))
+    color: var(--color-text-weak)
 }
 
 /* Caption */
@@ -83,6 +77,12 @@
     padding: var(--space-sm) 0;
     font-size: var(--fs-400);
     font-weight: 700;
+}
+
+/* Tamanhos */
+.c-table--compact th,
+.c-table--compact td {
+    padding: calc(var(--space-sm) * .75) var(--space-sm)
 }
 
 /* Colunas estreitas utilitárias */

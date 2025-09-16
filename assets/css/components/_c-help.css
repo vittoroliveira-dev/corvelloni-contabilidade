@@ -73,7 +73,7 @@
 /* resposta */
 .c-help__answer {
     padding: 0 var(--space-md) var(--space-md);
-    color: var(--color-text-weak, var(--cor-texto-apoio));
+    color: var(--color-text-weak);
     line-height: 1.7;
 }
 

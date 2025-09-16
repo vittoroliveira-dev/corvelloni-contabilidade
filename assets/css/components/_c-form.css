@@ -17,7 +17,7 @@
 
 .c-form__hint {
     font-size: var(--fs-300);
-    color: var(--color-text-weak, var(--cor-texto-apoio));
+    color: var(--color-text-weak);
 }
 
 .c-form__error {

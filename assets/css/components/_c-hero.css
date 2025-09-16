@@ -81,6 +81,27 @@
     margin-inline: auto;
 }
 
+@media (min-width: 48em) {
+    .c-hero {
+        text-align: left;
+    }
+
+    .c-hero__inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+        align-items: center;
+    }
+
+    .c-hero p {
+        margin-inline: 0;
+    }
+
+    .c-hero__media {
+        margin-block-start: 0;
+    }
+    }
+
 /* Modificadores de espaçamento opcionais */
 .c-hero--tight {
     padding-block: var(--space-lg)
@@ -89,3 +110,7 @@
 .c-hero--loose {
     padding-block: calc(var(--space-xl) * 1.25)
 }
+
+/* opcional: transparente sobre hero até rolar */
+  html.over-hero:not(.is-scrolled) .c-header{
+    background: transparent; border-color: transparent; backdrop-filter: none;}

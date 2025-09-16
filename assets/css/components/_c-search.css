@@ -13,7 +13,7 @@
     inset-inline-start: var(--space-md);
     inset-block-start: 50%;
     transform: translateY(-50%);
-    color: var(--color-text-weak, var(--cor-texto-apoio));
+    color: var(--color-text-weak);
     pointer-events: none;
     font-size: 1rem;
 }
