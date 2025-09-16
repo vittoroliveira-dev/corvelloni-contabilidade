@@ -3,8 +3,8 @@
     display: inline-block;
     padding: .875rem 1.25rem;
     border-radius: 999px;
-    background: var(--color-primary, #2f80ed);
-    color: #fff;
+    background: var(--cor-fundo-branco, #2f80ed);
+    color: var(--cor-primaria-hover);
     text-decoration: none;
     font-weight: 600;
     line-height: 1;

@@ -1,8 +1,9 @@
 /* HERO */
 .c-hero {
-    padding-block: var(--space-xl) var(--space-lg);
-    background-color: var(--color-surface);
+    background-color: var(--cor-primaria-hover);
     text-align: center;
+    overflow: clip;
+    --hero-media-w: clamp(260px, 38vw, 380px);
 }
 
 .c-hero__inner {
@@ -12,17 +13,23 @@
 }
 
 .c-hero__title {
-    color: var(--color-text);
+    color: var(--primary-tint-12);
     margin-block-end: var(--space-sm);
+    margin: 0;
+    text-wrap: none;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    /* sem travar; desktop usa balance */
 }
 
 .c-hero p {
     font-size: var(--fs-500);
-    color: var(--cor-texto-apoio);
-    max-inline-size: var(--measure, 65ch);
+    color: var(--cor-texto-principal);
     margin-inline: auto;
     margin-block-end: var(--space-md);
-    text-wrap: pretty;
+    justify-content: center;
+    align-content: center;
 }
 
 /* Ações */
@@ -81,36 +88,102 @@
     margin-inline: auto;
 }
 
-@media (min-width: 48em) {
+.c-hero__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Provas sociais */
+.c-hero__proof {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: clamp(8px, 1.5vw, 12px);
+    max-inline-size: 48ch;
+    justify-content: center;
+    align-content: center;
+}
+
+.c-hero__proof li {
+    display: grid;
+    grid-template-columns: 1.25rem 1fr;
+    align-items: center;
+    column-gap: .5rem;
+    line-height: 1.4;
+    justify-content: center;
+    align-content: center;
+}
+
+.c-hero__proof .c-icon {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    justify-content: center;
+    align-content: center;
+}
+
+/* DESKTOP  unificado: texto largo + imagem colada no canto direito */
+@media (min-width:64em) {
     .c-hero {
         text-align: left;
+        /* bleed para colar a mídia no canto do viewport */
+        --bleed: clamp(0px,
+                calc((100vw - (var(--container-max) + (var(--container-padding) * 2))) / 2),
+                100vw);
     }
 
     .c-hero__inner {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        /* dá mais área real ao texto; evita quebra do H1 */
+        grid-template-columns: minmax(48rem, 1fr) minmax(260px, var(--hero-media-w));
+        align-items: end;
         gap: var(--space-xl);
-        align-items: center;
+    }
+
+    .c-hero__content {
+        max-width: none;
+        position: relative;
+        z-index: 1;
+
+    }
+
+    .c-hero__title {
+        text-wrap: balance;
+        justify-content: center;
+        align-content: center;
     }
 
     .c-hero p {
         margin-inline: 0;
+        justify-content: center;
+        align-content: center;
     }
 
     .c-hero__media {
         margin-block-start: 0;
+        inline-size: var(--hero-media-w);
+        justify-self: end;
+        /* canto direito */
+        margin-inline-end: calc(var(--bleed) * -1);
+        /* cola no viewport */
+        pointer-events: none;
     }
-    }
+}
 
-/* Modificadores de espaçamento opcionais */
+/* Modificadores */
 .c-hero--tight {
-    padding-block: var(--space-lg)
+    padding-block: var(--space-lg);
 }
 
 .c-hero--loose {
-    padding-block: calc(var(--space-xl) * 1.25)
+    padding-block: calc(var(--space-xl) * 1.25);
 }
 
-/* opcional: transparente sobre hero até rolar */
-  html.over-hero:not(.is-scrolled) .c-header{
-    background: transparent; border-color: transparent; backdrop-filter: none;}
+/* Header transparente sobre o hero até rolar */
+html.over-hero:not(.is-scrolled) .c-header {
+    background: transparent;
+    border-color: transparent;
+    backdrop-filter: none;
+}
