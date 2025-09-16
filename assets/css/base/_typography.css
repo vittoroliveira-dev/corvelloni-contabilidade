@@ -1,94 +1,47 @@
-/* Tipografia base — 2025 */
-html {
-    font-size: 100%
-}
+@layer base {
+    body {
+        font-family: var(--font-family-base);
+        font-size: var(--font-size-100);
+        line-height: var(--line-height-base);
+        color: var(--color-neutral-600);
+        background-color: var(--color-neutral-050);
+        min-height: 100vh;
+    }
 
-body {
-    font-family: var(--font-sans);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    font-size: var(--fs-400);
-    line-height: 1.6;
-}
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: var(--font-family-accent);
+        color: var(--color-neutral-900);
+        line-height: var(--line-height-tight);
+        letter-spacing: -0.02em;
+    }
 
-/* Títulos */
-:where(h1, h2, h3, h4, h5, h6) {
-    margin-block: 0 var(--space-md, 1rem);
-    line-height: 1.2;
-    font-weight: 700;
-    text-wrap: balance;
-}
+    h1 {
+        font-size: clamp(var(--font-size-500), 3vw 1rem, var(--font-size-600));
+    }
 
-h1 {
-    font-size: var(--fs-900, clamp(2.25rem, 4vw, 3.5rem))
-}
+    h2 {
+        font-size: clamp(var(--font-size-400), 2vw 1rem, var(--font-size-500));
+    }
 
-h2 {
-    font-size: var(--fs-800, clamp(1.75rem, 3vw, 2.5rem))
-}
+    h3 {
+        font-size: clamp(var(--font-size-300), 1.5vw 1rem, var(--font-size-400));
+    }
 
-h3 {
-    font-size: var(--fs-700, clamp(1.5rem, 2.2vw, 2rem))
-}
+    p {
+        margin-bottom: var(--space-300);
+    }
 
-h4 {
-    font-size: var(--fs-600, clamp(1.25rem, 1.6vw, 1.5rem))
-}
+    a {
+        color: var(--color-primary-600);
+        text-decoration: none;
+        transition: color var(--transition-duration-fast) var(--transition-ease);
+    }
 
-h5 {
-    font-size: var(--fs-500, 1.125rem)
-}
-
-h6 {
-    font-size: var(--fs-450, 1rem)
-}
-
-/* Texto e medida */
-p {
-    max-inline-size: var(--measure, 65ch)
-}
-
-small {
-    font-size: var(--fs-300, .875rem)
-}
-
-strong {
-    font-weight: 700
-}
-
-em,
-i {
-    font-style: italic
-}
-
-/* Listas */
-:where(ul, ol) {
-    padding-inline-start: 1.25rem;
-    margin-block: 0 var(--space-md, 1rem)
-}
-
-:where(li) {
-    margin-block: .25rem
-}
-
-/* Links */
-a:hover,
-a:focus-visible {
-    text-decoration: underline
-}
-
-/* Código */
-code,
-kbd,
-pre,
-samp {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: .95em;
-}
-
-pre {
-    overflow: auto;
-    padding: var(--space-sm, .5rem);
-    border: 1px solid var(--color-border, #e5e7eb);
-    border-radius: var(--radius-sm, .375rem)
+    a:hover,
+    a:focus-visible {
+        color: var(--color-primary-500);
+    }
 }
