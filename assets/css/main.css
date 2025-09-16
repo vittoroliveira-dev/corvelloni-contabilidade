@@ -31,4 +31,5 @@
 @import url('./utilities/_u-hide.css') layer(utilities);
 @import url('./utilities/_u-stretched-link.css') layer(utilities);
 @import url('./utilities/_u-animations.css') layer(utilities);
+@import url('./utilities/_u-lock-scroll.css') layer(utilities);
 
