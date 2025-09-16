@@ -1,140 +1,50 @@
-/* Navegação principal */
-.c-nav {
-    margin-inline-start: auto;
-    inline-size: max-content;
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    position: relative;
-    z-index: var(--z-nav, 900);
-}
-
-.c-nav__toggle {
-    display: none;
-    align-items: center;
-    gap: calc(var(--space-sm) * .5);
-    min-block-size: 40px;
-    padding-inline: var(--space-sm);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-weight: 600;
-    line-height: 1;
-    transition: var(--transition-base);
-}
-
-.c-nav__toggle:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 2px;
-}
-
-.c-nav__toggle:is(:hover, :focus-visible) {
-    background-color: var(--primary-tint-12, var(--color-surface));
-    color: var(--color-primary);
-}
-
-.c-nav__list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: clamp(16px, 3vw, 48px);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-}
-
-.c-nav__item--has-dropdown {
-    position: relative;
-}
-
-.c-nav__link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: calc(var(--space-sm) * .75);
-    min-block-size: 44px;
-    padding: calc(var(--space-sm) * .85) var(--space-md);
-    border-radius: var(--radius-md);
-    color: var(--color-text);
-    font-weight: 600;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: var(--transition-base);
-}
-
-.c-nav__link:focus-visible {
-    outline: 2px solid var(--color-focus);
-    outline-offset: 2px;
-}
-
-.c-nav__link:is(:hover, [aria-current="page"], [aria-expanded="true"]) {
-    color: var(--color-primary);
-    background-color: var(--primary-tint-12, var(--color-surface));
-}
-
-@supports (color-mix(in srgb, black 0%, white 0%)) {
-    .c-nav__link:is(:hover, [aria-current="page"], [aria-expanded="true"]) {
-        background-color: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
-    }
-}
-
-.c-nav__link > .c-icon {
-    inline-size: 1.2em;
-    block-size: 1.2em;
-}
-
-.c-nav__link[aria-expanded="true"] .c-icon--dropdown {
-    transform: rotate(180deg);
-    transition: transform var(--transition-base);
-}
-
-@media (max-width: 60em) {
+@layer components {
     .c-nav {
-        flex: 0 0 auto;
-    }
-
-    .c-nav__toggle {
-        display: inline-flex;
+        display: flex;
+        align-items: center;
+        gap: var(--space-200);
     }
 
     .c-nav__list {
-        position: absolute;
-        inset-block-start: calc(100% + var(--space-xs, .5rem));
-        inset-inline-end: 0;
         display: flex;
-        justify-content: flex-start;
         flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-xs, .5rem);
-        padding: var(--space-sm);
-        background-color: var(--color-bg);
-        border: 1px solid var(--color-border);
+        gap: var(--space-200);
+        margin: 0;
+        padding: var(--space-300);
+        list-style: none;
+        background-color: var(--color-neutral-000);
         border-radius: var(--radius-md);
-        box-shadow: var(--shadow-md);
-        min-inline-size: min(90vw, 18rem);
-        max-inline-size: min(90vw, 22rem);
-
-        html.js .c-nav__list {
-        display: none;
-    }
-
-    html.js .c-nav.is-mobile-menu-open .c-nav__list {
-        display: flex;
+        box-shadow: var(--shadow-sm);
     }
 
     .c-nav__link {
-        justify-content: space-between;
-        inline-size: 100%;
+        font-weight: 600;
+        color: var(--color-neutral-600);
+        padding: var(--space-200) var(--space-300);
+        border-radius: var(--radius-full);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-    .c-nav__toggle,
-    .c-nav__link {
-        transition: none;
-}
-}
-}
+    .c-nav__link:hover,
+    .c-nav__link:focus-visible,
+    .c-nav__link[aria-current="page"] {
+        color: var(--color-neutral-000);
+        background-color: var(--color-primary-600);
+    }
+
+
+
+    .c-nav.is-open .c-nav__panel {
+        display: block;
+    }
+
+    @media (min-width: 64rem) {
+        .c-nav__list {
+            flex-direction: row;
+            align-items: center;
+            gap: var(--space-100);
+            background: transparent;
+            box-shadow: none;
+            padding: 0;
+        }
+    }
 }
