@@ -150,6 +150,30 @@ assets/js/
   - Edit `.c-brand__logo` height via `block-size`.
   - Do not change `--header-height`.
 
+  ## Troubleshooting `Missing script: "check"` and proxy
+
+If `npm run check` fails:
+
+```bash
+npm config delete http-proxy
+npm config delete https-proxy
+npm pkg set scripts.check="npm run lint"
+npm run check
+```
+
+# Other missing scripts
+# If other scripts like dev, build, or lint are missing from your package.json,
+# you can restore them by running the following commands in your terminal.
+
+npm pkg set scripts.dev="vite"
+npm pkg set scripts.start="vite"
+npm pkg set scripts.build="vite build"
+npm pkg set scripts.preview="vite preview -s"
+npm pkg set scripts['lint:css']="stylelint \"assets/css/**/*.css\" --allow-empty-input"
+npm pkg set scripts['lint:js']="eslint \"assets/js/**/*.js\""
+npm pkg set scripts['lint:html']="htmlhint \"**/*.html\""
+npm pkg set scripts.lint="npm run lint:html && npm run lint:css && npm run lint:js"
+
   ## Language
 - All human-facing output must be in **Brazilian Portuguese (PT-BR)**: error messages, PR descriptions, code comments, UI copy, and agent replies.
 - Commits must follow **Conventional Commits**: types in English (`feat`, `fix`, etc.), but **titles and bodies in PT-BR**.
