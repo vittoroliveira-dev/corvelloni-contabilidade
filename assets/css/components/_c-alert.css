@@ -1,4 +1,4 @@
-/* ALERT — sucesso/erro/aviso/info/neutro */
+/* ALERT  sucesso/erro/aviso/info/neutro */
 .c-alert {
   --_accent: var(--color-primary);
   --_bg: var(--surface-tint-8, var(--color-surface));
@@ -42,7 +42,7 @@
 
 .c-alert__desc {
   margin: .25rem 0 0;
-  color: var(--color-text-weak, var(--cor-texto-apoio));
+  color: var(--color-text-weak);
 }
 
 .c-alert__close {

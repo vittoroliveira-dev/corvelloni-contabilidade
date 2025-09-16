@@ -1,7 +1,7 @@
-/* BREADCRUMB — migalhas para navegação e SEO */
+/* BREADCRUMB  migalhas para navegação e SEO */
 .c-breadcrumb {
   font-size: var(--fs-300);
-  color: var(--color-text-weak, var(--cor-texto-apoio));
+  color: var(--color-text-weak);
 }
 
 .c-breadcrumb__list {
