@@ -49,7 +49,7 @@
 }
 
 .c-card__text {
-    color: var(--color-text-weak, var(--cor-texto-apoio));
+    color: var(--color-text-weak);
 }
 
 /* link expandido (stretched link) */
