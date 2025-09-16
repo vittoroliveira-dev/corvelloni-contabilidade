@@ -11,13 +11,8 @@
  */
 
 // --- Módulos Globais (Carregados em todas as páginas) ---
-import './modules/nav.js';
-import './modules/year.js';
-import './modules/enhance.js';
-// O 'header-over-hero' e 'help-search' também podem ser dinâmicos se não
-// aparecerem em todas as páginas, mas por enquanto mantemos globais.
-import './modules/header-over-hero.js';
-import './modules/help-search.js';
+import "./modules/navigation.js";
+import "./modules/cookie-consent.js";
 
 
 // --- Módulos de Página (Carregados sob demanda) ---
