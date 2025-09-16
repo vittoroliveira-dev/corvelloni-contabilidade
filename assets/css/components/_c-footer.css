@@ -109,7 +109,7 @@
     flex-wrap: wrap;
 
     font-size: var(--fs-300);
-    color: var(--color-text-weak, var(--cor-texto-apoio));
+    color: var(--color-text-weak);
 }
 
 .c-footer__legal {
@@ -130,7 +130,7 @@
     inline-size: 2rem;
     block-size: 2rem;
     border-radius: 50%;
-    color: var(--color-text-weak, var(--cor-texto-apoio));
+    color: var(--color-text-weak);
     text-decoration: none;
     transition: color .15s ease, transform .15s ease, background-color .15s ease;
 }
