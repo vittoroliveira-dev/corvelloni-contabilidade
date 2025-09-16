@@ -1,111 +1,107 @@
 /**
- * Módulo da Calculadora CLT vs PJ
- *
- * Responsável por:
- * 1. Carregar as faixas do Simples Nacional.
- * 2. Calcular de forma detalhada e realista a renda líquida em ambos os regimes.
- * 3. Atualizar os resultados em tempo real.
+ * Calculadora CLT vs PJ
+ * - Carrega faixas do Simples e tributos CLT
+ * - Compara líquidos CLT x PJ
  */
 async function initCltPjCalculator() {
   const form = document.querySelector('[data-calc="clt-pj"]');
   if (!form) return;
 
-  // --- 1. Carregamento de Dados e Seleção de Elementos ---
-  const response = await fetch('/data/simples-faixas.json');
-  const faixasSimples = await response.json();
+  // JSONs devem estar em public/data no build
+  const base = import.meta.env.BASE_URL;
 
-  // Vamos buscar os tributos de CLT que já usamos na outra calculadora
-  const tribResponse = await fetch('/data/br-tributos.json');
-  const tribCLT = await tribResponse.json();
+  // --- 1) Dados ---
+  let faixasSimples, tribCLT;
+  try {
+    const [r1, r2] = await Promise.all([
+      fetch(`${base}data/simples-faixas.json`),
+      fetch(`${base}data/br-tributos.json`)
+    ]);
+    faixasSimples = await r1.json();
+    tribCLT = await r2.json();
+  } catch (err) {
+    console.error('Falha ao carregar dados das faixas/tributos', err);
+    return;
+  }
 
   const resultCLTEl = form.querySelector('[data-result-clt]');
-  const resultPJEl = form.querySelector('[data-result-pj]');
+  const resultPJEl  = form.querySelector('[data-result-pj]');
+  if (!resultCLTEl || !resultPJEl) return;
+
   const inputs = form.querySelectorAll('input, select');
 
-  // --- 2. Funções de Cálculo Modulares ---
+  // --- 2) Util ---
+  const formatCurrency = v =>
+    Number(v || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-  // Função para formatar valores em BRL
-  const formatCurrency = (value) => value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-  // Calcula o salário líquido mensal CLT, incluindo benefícios
-  const calculateCLTNet = (salarioBruto) => {
-    // Benefícios anuais diluídos mensalmente
+  // --- 3) CLT ---
+   const calculateCLTNet = (salarioBruto) => {
     const feriasMensal = salarioBruto / 12;
     const tercoFeriasMensal = feriasMensal / 3;
-    const decimoTerceiroMensal = salarioBruto / 12;
+   // const _decimoTerceiroMensal = salarioBruto / 12; // não usado na conta simplificada
 
-    const totalBrutoMensalizado = salarioBruto + tercoFeriasMensal; // 13º e Férias não têm INSS/IRRF sobre eles mesmos nesta conta simplificada
+    const totalBrutoMensalizado = salarioBruto + tercoFeriasMensal;
 
+    // INSS progressivo
     let inss = 0;
-    let baseCalculada = 0;
+    let baseAcum = 0;
     for (const faixa of tribCLT.inss) {
-      const baseNestaFaixa = Math.min(totalBrutoMensalizado, faixa.ceiling) - baseCalculada;
-      if (baseNestaFaixa > 0) {
-        inss += baseNestaFaixa * faixa.rate;
-        baseCalculada = faixa.ceiling;
-      } else {
-        break;
-      }
+      const baseNesta = Math.min(totalBrutoMensalizado, faixa.ceiling) - baseAcum;
+      if (baseNesta > 0) {
+        inss += baseNesta * faixa.rate;
+        baseAcum = faixa.ceiling;
+      } else break;
     }
 
-    const baseCalculoIR = totalBrutoMensalizado - inss;
+    // IRRF por faixa
+    const baseIR = totalBrutoMensalizado - inss;
     let irrf = 0;
     for (const faixa of tribCLT.irrf.tabela) {
-      if (baseCalculoIR > faixa.min) {
-        irrf = baseCalculoIR * faixa.rate - faixa.deduction;
+      if (baseIR > faixa.min) {
+        irrf = baseIR * faixa.rate - faixa.deduction;
       }
     }
 
-    // O valor que realmente "sobra" para a pessoa, incluindo benefícios
-    const liquidoTotal = totalBrutoMensalizado - inss - irrf;
-    return liquidoTotal;
+    return totalBrutoMensalizado - inss - irrf;
   };
 
-  // Calcula o valor líquido PJ após impostos e custos
+  // --- 4) PJ ---
   const calculatePJNet = (faturamentoMensal, anexo, rbt12, proLabore) => {
     if (!faturamentoMensal || !anexo || !rbt12 || !proLabore) return 0;
 
-    // Encontra a faixa correta do Simples Nacional
-    const faixa = faixasSimples[anexo].find(f => rbt12 <= f.max);
-    if (!faixa) return 0; // Retorna 0 se o faturamento for muito alto
+    const faixas = faixasSimples?.[anexo];
+    if (!faixas) return 0;
 
-    // Calcula a alíquota efetiva
+    const faixa = faixas.find(f => rbt12 <= f.max);
+    if (!faixa) return 0;
+
     const aliquotaEfetiva = ((rbt12 * faixa.aliq) - faixa.pd) / rbt12;
     const impostoSimples = faturamentoMensal * aliquotaEfetiva;
 
-    // Calcula o INSS sobre o pró-labore (11%)
     const inssProLabore = proLabore * 0.11;
 
-    // O líquido PJ é o faturamento menos o imposto e os custos do "salário" do dono
-    const liquido = faturamentoMensal - impostoSimples - inssProLabore;
-    return liquido;
+    return faturamentoMensal - impostoSimples - inssProLabore;
   };
 
-  // --- 3. Função Principal de Atualização ---
-
+  // --- 5) Atualização ---
   const updateComparison = () => {
-    // Coleta de valores do formulário
-    const salarioCLT = parseFloat(form.salario.value) || 0;
-    const faturamentoPJ = parseFloat(form.faturamento.value) || 0;
-    const anexoPJ = form.anexo.value;
-    const rbt12PJ = parseFloat(form.rbt12.value) || 0;
-    // Assume-se um pró-labore de 28% do faturamento, um valor comum. 
-    // Para uma calculadora mais avançada, este poderia ser um campo.
-    const proLaborePJ = faturamentoPJ * 0.28;
+    const salarioCLT   = parseFloat(form.salario?.value) || 0;
+    const faturamento  = parseFloat(form.faturamento?.value) || 0;
+    const anexo        = form.anexo?.value;
+    const rbt12        = parseFloat(form.rbt12?.value) || 0;
 
-    // Calcula os líquidos de cada modalidade
+    // heurística simples para pró-labore
+    const proLabore = faturamento * 0.28;
+
     const liquidoCLT = calculateCLTNet(salarioCLT);
-    const liquidoPJ = calculatePJNet(faturamentoPJ, anexoPJ, rbt12PJ, proLaborePJ);
+    const liquidoPJ  = calculatePJNet(faturamento, anexo, rbt12, proLabore);
 
-    // Atualiza a interface
     resultCLTEl.textContent = formatCurrency(liquidoCLT);
-    resultPJEl.textContent = formatCurrency(liquidoPJ);
+    resultPJEl.textContent  = formatCurrency(liquidoPJ);
   };
 
-  // --- 4. Adiciona os Eventos ---
-  updateComparison(); // Cálculo inicial
-  inputs.forEach(input => input.addEventListener('input', updateComparison));
+  updateComparison();
+  inputs.forEach(el => el.addEventListener('input', updateComparison));
 }
 
-// Inicia o módulo
 initCltPjCalculator();
