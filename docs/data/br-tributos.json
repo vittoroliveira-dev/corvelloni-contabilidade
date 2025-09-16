@@ -1,0 +1,18 @@
+{
+  "inss": [
+    { "ceiling": 1320.00, "rate": 0.075 },
+    { "ceiling": 2571.29, "rate": 0.09 },
+    { "ceiling": 3856.94, "rate": 0.12 },
+    { "ceiling": 7507.49, "rate": 0.14 }
+  ],
+  "irrf": {
+    "dependente": 189.59,
+    "tabela": [
+      { "min": 0, "rate": 0, "deduction": 0 },
+      { "min": 2259.21, "rate": 0.075, "deduction": 169.44 },
+      { "min": 2826.66, "rate": 0.15, "deduction": 381.44 },
+      { "min": 3751.06, "rate": 0.225, "deduction": 662.77 },
+      { "min": 4664.69, "rate": 0.275, "deduction": 896.00 }
+    ]
+  }
+}
