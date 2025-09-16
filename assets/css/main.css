@@ -25,6 +25,8 @@
 @import url('./components/_c-breadcrumb.css') layer(components);
 @import url('./components/_c-alert.css') layer(components);
 @import url('./components/_c-button.css') layer(components);
+@import url('./components/_c-icon.css') layer(components);
+@import url('./components/_c-icon.css') layer(components);
 /* utilities */
 @import url('./utilities/_u-sr-only.css') layer(utilities);
 @import url('./utilities/_u-flow.css') layer(utilities);
