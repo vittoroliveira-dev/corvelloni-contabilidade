@@ -1,6 +1,6 @@
 /* FORM */
 .c-form {
-    display: block
+    display: block;
 }
 
 .c-form__group {
@@ -21,11 +21,11 @@
 }
 
 .c-form__error {
-    color: var(--color-danger)
+    color: var(--color-danger);
 }
 
 .c-form__success {
-    color: var(--color-success)
+    color: var(--color-success);
 }
 
 /* Controles base */
@@ -47,10 +47,21 @@
     appearance: none;
 }
 
+/* Placeholders */
 .c-form__control::placeholder,
 .c-form__input::placeholder,
 .c-form__textarea::placeholder {
     color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+/* Tipos comuns (base antes de :focus-visible) */
+.c-form__textarea {
+    min-block-size: 7.5rem;
+    resize: vertical;
+}
+
+.c-form__select {
+    background-image: none;
 }
 
 /* Foco acessível */
@@ -64,7 +75,17 @@
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 22%, transparent);
 }
 
-/* Estados */
+/* Desabilitado (precisa vir antes dos estados mais específicos) */
+.c-form__control:disabled,
+.c-form__input:disabled,
+.c-form__select:disabled,
+.c-form__textarea:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    background: color-mix(in srgb, var(--color-surface) 60%, var(--color-bg));
+}
+
+/* Estados (mais específicos por último) */
 .c-form__control[aria-invalid="true"],
 .c-form__input[aria-invalid="true"],
 .c-form__select[aria-invalid="true"],
@@ -79,29 +100,10 @@
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-success) 18%, transparent);
 }
 
-.c-form__control:disabled,
-.c-form__input:disabled,
-.c-form__select:disabled,
-.c-form__textarea:disabled {
-    opacity: .6;
-    cursor: not-allowed;
-    background: color-mix(in srgb, var(--color-surface) 60%, var(--color-bg));
-}
-
-/* Tipos comuns */
-.c-form__textarea {
-    min-block-size: 7.5rem;
-    resize: vertical
-}
-
-.c-form__select {
-    background-image: none
-}
-
 /* Checkboxes e radios (layout) */
 .c-form__checks {
     display: grid;
-    gap: var(--space-sm)
+    gap: var(--space-sm);
 }
 
 .c-form__check {
@@ -112,5 +114,5 @@
 
 .c-form__check input {
     inline-size: 1.125rem;
-    block-size: 1.125rem
+    block-size: 1.125rem;
 }

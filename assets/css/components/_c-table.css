@@ -1,4 +1,4 @@
-/* TABLE — componente base */
+/* TABLE  componente base */
 .c-table-wrap {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -29,6 +29,12 @@
     text-align: left;
     font-weight: 700;
     white-space: nowrap;
+}
+
+/* Tamanhos */
+.c-table--compact th,
+.c-table--compact td {
+    padding: calc(var(--space-sm) * .75) var(--space-sm)
 }
 
 /* Cabeçalho */
@@ -77,12 +83,6 @@
     padding: var(--space-sm) 0;
     font-size: var(--fs-400);
     font-weight: 700;
-}
-
-/* Tamanhos */
-.c-table--compact th,
-.c-table--compact td {
-    padding: calc(var(--space-sm) * .75) var(--space-sm)
 }
 
 /* Colunas estreitas utilitárias */
