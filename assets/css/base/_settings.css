@@ -2,18 +2,18 @@
   /* CORES */
   --cor-primaria:#A92534;
   --cor-primaria-hover:#8e1f2b;
-  --cor-texto-principal:#222222;
+  --cor-texto-principal:#222;
   --primary-tint-12: #f7eaec;
 
-  --cor-texto-apoio:#555555;
+  --cor-texto-apoio:#555;
   --cor-borda:#E2E8F0;
   --cor-fundo-claro:#F8F9FA;
-  --cor-fundo-branco:#FFFFFF;
+  --cor-fundo-branco:#FFF;
 
   --cor-sucesso:#00A859;
   --cor-aviso:#FFC107;
   --cor-erro:#D32F2F;
-  
+
 
   /* TIPOGRAFIA */
   --fonte-principal:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -56,7 +56,7 @@
   --color-surface:var(--cor-fundo-claro);
   --color-text:var(--cor-texto-principal);
   --color-border:var(--cor-borda);
-
+  --color-text-weak:var(--cor-texto-apoio);
   --color-primary:var(--cor-primaria);
   --color-primary-hover:var(--cor-primaria-hover);
   --color-success:var(--cor-sucesso);
