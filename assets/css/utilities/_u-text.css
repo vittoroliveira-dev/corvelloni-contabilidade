@@ -1,9 +1,0 @@
-@layer utilities {
-    .u-text-center {
-        text-align: center;
-    }
-
-    .u-text-muted {
-        color: var(--color-neutral-400);
-    }
-}
