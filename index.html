@@ -3,150 +3,452 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Corvelloni Contabilidade | Especialistas em gestão contábil moderna</title>
+    <style>
+/* Critical CSS - Above the fold styles (minimal) */
+.c-header{position:sticky;top:0;z-index:1000;}
+.c-hero{display:grid;padding:3rem 0;align-items:center;}
+.c-nav{display:none;}
+@media (min-width:768px){.c-nav{display:block;}.c-hero{grid-template-columns:1fr 1fr;}}
+</style>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <meta name="robots" content="index,follow">
+    <!-- HEAD (logo após charset/viewport) -->
+    <link rel="preload" as="image" href="/assets/img/svg/hero.svg">
+    <title>Corvelloni Contabilidade | Contabilidade Digital e Consultiva</title>
     <meta name="description"
-        content="Contabilidade consultiva em São Paulo com foco em tecnologia, abertura de empresas e BPO financeiro. Solicite uma proposta personalizada." />
+        content="Simplifique a contabilidade da sua empresa. Abertura de CNPJ, gestão fiscal e BPO financeiro com especialistas dedicados e tecnologia de ponta." />
     <link rel="canonical" href="https://www.corvelloni.com.br/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
+
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Corvelloni Contabilidade | Especialistas em gestão contábil moderna" />
+    <meta property="og:title" content="Corvelloni Contabilidade | Contabilidade Digital e Consultiva" />
     <meta property="og:description"
-        content="Assessoria contábil com tecnologia, abertura de empresas, folha e BPO financeiro. Atendimento nacional a partir de São Paulo." />
+        content="Simplifique a contabilidade da sua empresa. Abertura de CNPJ, gestão fiscal e BPO financeiro com especialistas dedicados e tecnologia de ponta." />
     <meta property="og:url" content="https://www.corvelloni.com.br/" />
     <meta property="og:site_name" content="Corvelloni Contabilidade" />
-    <!--<meta property="og:image" content="https://www.corvelloni.com.br/assets/img/social-share.jpg" Alterar quando tiver  -->
-    <meta property="og:image:alt" content="Equipe Corvelloni atendendo clientes com tecnologia" />
+    <meta property="og:image" content="https://www.corvelloni.com.br/assets/img/social-share.jpg" />
+    <meta property="og:image:alt"
+        content="Dashboard da plataforma Corvelloni em um laptop, mostrando gráficos de crescimento" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Corvelloni Contabilidade | Especialistas em gestão contábil moderna" />
+    <meta name="twitter:title" content="Corvelloni Contabilidade | Contabilidade Digital e Consultiva" />
     <meta name="twitter:description"
-        content="Transforme a contabilidade da sua empresa com especialistas certificados e tecnologia em nuvem." />
-    <!-- <meta name="twitter:image" content="https://www.corvelloni.com.br/assets/img/social-share.jpg" /> Alterar quando tiver  -->
-    <link rel="stylesheet" href="assets/css/main.css" />
+        content="Transforme a gestão do seu negócio com a contabilidade consultiva da Corvelloni." />
+    <meta name="twitter:image" content="https://www.corvelloni.com.br/assets/img/social-share.jpg" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#111827" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 </head>
 
 <body>
-    <a class="u-visually-hidden" href="#conteudo-principal">Pular para o conteúdo</a>
+    <a class="u-visually-hidden u-skiplink" href="#conteudo-principal">Pular para o conteúdo</a>
     <header class="c-header">
         <div class="o-container c-header__inner">
             <a class="c-header__logo" href="/">
-                <img src="assets/img/svg/logo-white.svg" alt="Corvelloni Contabilidade" width="168" height="40" />
+                <img src="/assets/img/svg/logo.svg" decoding="async" alt="Corvelloni Contabilidade" width="140" height="40" />
             </a>
+
             <button class="c-header__toggle" type="button" aria-expanded="false" aria-controls="menu-principal"
                 data-nav-toggle>
                 <span class="u-visually-hidden">Abrir menu</span>
-                <svg width="20" height="20" aria-hidden="true">
-                    <use href="assets/icons/icons.svg#menu"></use>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </button>
-            <nav class="c-nav" aria-label="Menu principal" id="menu-principal">
-                <div class="c-nav__panel">
-                    <ul class="c-nav__list">
-                        <li><a class="c-nav__link" href="/ajuda/" aria-current="page">Ajuda</a></li>
-                        <li><a class="c-nav__link" href="/duvidas/">Dúvidas</a></li>
-                        <li><a class="c-nav__link" href="/calc/">Calculadoras</a></li>
-                        <li><a class="c-nav__link" href="#contato">Contato</a></li>
-                    </ul>
-                </div>
+
+            <nav id="menu-principal" class="c-nav" aria-label="Menu principal">
+                <ul class="c-nav__list">
+                    <li><a class="c-nav__link" href="/ajuda/">Ajuda</a></li>
+                    <li><a class="c-nav__link" href="/duvidas/">Dúvidas</a></li>
+
+                    <li class="c-nav__item--has-dropdown">
+                        <button id="btn-calculadoras" class="c-nav__link" type="button" aria-haspopup="true" aria-expanded="false"
+                            aria-controls="submenu-calculadoras">
+                            Calculadoras
+                            <svg class="c-nav__arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <ul id="submenu-calculadoras" class="c-nav__submenu">
+                            <li><a class="c-nav__submenu-link" href="/calc/custo-abrir-cnpj/">Custo para Abrir CNPJ</a>
+                            </li>
+                            <li><a class="c-nav__submenu-link" href="/calc/salario-liquido/">Salário Líquido</a></li>
+                            <li><a class="c-nav__submenu-link" href="/calc/clt-vs-pj/">CLT vs PJ</a></li>
+                            <li><a class="c-nav__submenu-link" href="/calc/fator-r/">Fator R</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="c-nav__link" href="#linksrapido">Links Rápidos</a></li>
+                    <li><a class="c-nav__link c-nav__link--cta" href="#contato">Contato</a></li>
+                    <li class="c-nav__wa-item">
+                        <a class="c-nav__wa-btn"
+                            href="https://wa.me/5518997048513?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20proposta"
+                            target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+                            <svg class="c-nav__wa-ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill="currentColor"
+                                    d="M20.52 3.48A11.93 11.93 0 0 0 12.07 0C5.5 0 .18 5.32.18 11.88c0 2.09.56 4.09 1.62 5.86L0 24l6.41-1.73a11.86 11.86 0 0 0 5.66 1.44h.01c6.56 0 11.88-5.32 11.88-11.88 0-3.18-1.24-6.17-3.42-8.35ZM12.07 21.6a9.7 9.7 0 0 1-4.94-1.35l-.35-.21-3.8 1.03 1.02-3.7-.23-.38a9.69 9.69 0 1 1 8.3 4.61Zm5.58-7.25c-.3-.15-1.79-.88-2.07-.98-.28-.1-.49-.15-.7.15-.21.3-.8.98-.98 1.18-.18.2-.36.23-.66.08-.3-.15-1.27-.47-2.42-1.5-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.36.43-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.7-1.68-.96-2.3-.25-.6-.5-.52-.7-.53h-.6c-.2 0-.53.07-.81.38-.28.3-1.07 1.05-1.07 2.56 0 1.5 1.1 2.95 1.25 3.16.15.2 2.15 3.28 5.2 4.6.73.32 1.3.5 1.75.64.74.24 1.42.2 1.95.13.6-.09 1.79-.73 2.04-1.44.25-.71.25-1.3.17-1.43-.07-.13-.27-.2-.57-.35Z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>
 
     <main id="conteudo-principal">
-        <section class="o-section o-section--tight">
+        <section class="o-section">
             <div class="o-container c-hero">
                 <div>
-                    <p class="c-hero__eyebrow">Contabilidade consultiva em SP</p>
-                    <h1 class="c-hero__heading">Transforme números em decisões estratégicas</h1>
+                    <p class="c-hero__eyebrow">Contabilidade Digital e Consultiva</p>
+                    <h1 class="c-hero__heading">A contabilidade que trabalha para o sucesso do seu negócio</h1>
                     <p class="c-hero__text">
-                        A Corvelloni Contabilidade oferece abertura de empresas, folha de pagamento e BPO financeiro em
-                        um único portal, com especialistas dedicados ao seu negócio.
+                        Deixe a burocracia conosco. Oferecemos abertura de empresa, gestão fiscal e BPO financeiro em
+                        uma plataforma inteligente com especialistas dedicados.
                     </p>
                     <div class="c-hero__actions">
-                        <a class="c-button c-button--primary" href="#contato">Quero falar com um especialista</a>
-                        <a class="c-button c-button--ghost" href="/calc/">Acessar calculadoras</a>
+                        <a class="c-button c-button--primary"
+                            href="https://wa.me/5518997048513?text=Olá,%20gostaria%20de%20uma%20proposta"
+                            target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+                        <a class="c-button c-button--ghost" href="/calc/">Conheça nossos serviços</a>
                     </div>
                 </div>
-                <div class="c-hero__media">
-                    <img class="c-hero__image" src="assets/img/webp/hero-illustration.webp"
-                        srcset="assets/img/webp/hero-illustration.webp 1x, assets/img/webp/hero-illustration.webp@2x.webp 2x"
-                        alt="Consultores Corvelloni reunidos com cliente via notebook" width="520" height="420"
-                        decoding="async" loading="eager" />
+                <div>
+                    <img src="/assets/img/svg/hero.svg"
+                        alt="Ilustração de contabilidade com calculadora, gráficos e documentos" width="1200"
+                        height="800" decoding="async" loading="eager">
                 </div>
             </div>
         </section>
 
-        <!-- Seção de serviços/cards etc. -->
+        <section class="o-section" style="background-color: var(--color-neutral-100);">
+            <div class="o-container c-trust-bar">
+                <h2 class="u-visually-hidden">Empresas que confiam em nosso trabalho</h2>
+                <picture>
+                    <source srcset="/assets/img/logo-parceiro-1.avif" type="image/avif">
+                    <source srcset="/assets/img/logo-parceiro-1.webp" type="image/webp">
+                    <img src="/assets/img/logo-parceiro-1.svg" alt="Logo da Empresa Parceira 1" height="30" width="120" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                    <source srcset="/assets/img/logo-parceiro-2.avif" type="image/avif">
+                    <source srcset="/assets/img/logo-parceiro-2.webp" type="image/webp">
+                    <img src="/assets/img/logo-parceiro-2.svg" alt="Logo da Empresa Parceira 2" height="30" width="120" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                    <source srcset="/assets/img/logo-parceiro-3.avif" type="image/avif">
+                    <source srcset="/assets/img/logo-parceiro-3.webp" type="image/webp">
+                    <img src="/assets/img/logo-parceiro-3.svg" alt="Logo da Empresa Parceira 3" height="30" width="120" loading="lazy" decoding="async">
+                </picture>
+                <picture>
+                    <source srcset="/assets/img/logo-parceiro-4.avif" type="image/avif">
+                    <source srcset="/assets/img/logo-parceiro-4.webp" type="image/webp">
+                    <img src="/assets/img/logo-parceiro-4.svg" alt="Logo da Empresa Parceira 4" height="30" width="120" loading="lazy" decoding="async">
+                </picture>
+            </div>
+        </section>
+        <section class="o-section">
+            <div class="o-container">
+                <div class="c-section-header">
+                    <h2>Tudo o que sua empresa precisa para crescer organizada</h2>
+                    <p>Foque no seu core business. Nós cuidamos de toda a complexidade contábil para você.</p>
+                </div>
+                <div class="c-card-grid">
+                    <article class="c-card">
+                        <svg class="c-card__icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7.5" r="4.5"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="17" y1="11" x2="23" y2="11"></line>
+                        </svg>
+                        <h2 class="c-card__title">Abertura de Empresa Grátis</h2>
+                        <p class="c-card__text">Abra seu CNPJ sem custo e sem burocracia. Cuidamos de todo o processo
+                            para você começar com o pé direito.</p>
+                    </article>
+                    <article class="c-card">
+                        <svg class="c-card__icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <h2 class="c-card__title">Contabilidade Completa</h2>
+                        <p class="c-card__text">Todas as suas obrigações fiscais e contábeis em dia, com relatórios
+                            claros e um contador dedicado para te ajudar.</p>
+                    </article>
+                    <article class="c-card">
+                        <svg class="c-card__icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                        <h2 class="c-card__title">BPO Financeiro</h2>
+                        <p class="c-card__text">Terceirize a gestão financeira da sua empresa. Cuidamos do seu fluxo de
+                            caixa, contas e cobranças.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="linksrapido" class="o-section" style="background-color: var(--color-neutral-100);">
+            <div class="o-container">
+
+                <div class="c-section-header">
+                    <h2>Links Rápidos</h2>
+                    <p>Acesse portais importantes e realize consultas de forma rápida e segura.</p>
+                </div>
+
+                <div class="c-link-list">
+                    <a href="https://servicos.receitafederal.gov.br/"
+                        aria-label="Acessar Portal de Serviços da Receita Federal" class="c-link-list__item"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="c-link-list__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <div class="c-link-list__text">
+                            <strong>Receita Federal</strong>
+                            <span>Portal de Serviços (e-CAC)</span>
+                        </div>
+                        <div class="c-link-list__arrow">→</div>
+                    </a>
+                    <a href="https://www.fgts.gov.br/Paginas/trabalhador/app-fgts.aspx"
+                        aria-label="Acessar Portal do Trabalhador para consultar seu FGTS" class="c-link-list__item"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="c-link-list__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z">
+                                </path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="c-link-list__text">
+                            <strong>Consulta FGTS</strong>
+                            <span>Acesse pelo App Oficial</span>
+                        </div>
+                        <div class="c-link-list__arrow">→</div>
+                    </a>
+                    <a href="https://www.nfse.gov.br/EmissorNacional/Login?ReturnUrl=%2fEmissorNacional"
+                        aria-label="Acessar Portal de Emissão de Notas Nacional" class="c-link-list__item"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="c-link-list__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                            </svg>
+                        </div>
+                        <div class="c-link-list__text">
+                            <strong>Portal Nacional da NFS-e</strong>
+                            <span>Acesso ao Emissor Nacional</span>
+                        </div>
+                        <div class="c-link-list__arrow">→</div>
+                    </a>
+
+                    <a href="https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"
+                        class="c-link-list__item"
+                        aria-label="Acesse o Portal da Fazenda para Emissão de Comprovante de Inscrição e de Situação Cadastral"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="c-link-list__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </div>
+                        <div class="c-link-list__text">
+                            <strong>Consulta de CNPJ</strong>
+                            <span>Emissão de Comprovante de Inscrição</span>
+                        </div>
+                        <div class="c-link-list__arrow">→</div>
+                    </a>
+                    <a href="https://servicos.receitafederal.gov.br/servico/certidoes/#/home"
+                        aria-label="Acesse o Portal da Receita Federal para emissão de Certidões"
+                        class="c-link-list__item" target="_blank" rel="noopener noreferrer">
+                        <div class="c-link-list__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="c-link-list__text">
+                            <strong>Emissão de Certidões</strong>
+                            <span>Certidão de Débitos Federais (CND)</span>
+                        </div>
+                        <div class="c-link-list__arrow">→</div>
+                    </a>
+                    <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao"
+                        aria-label="Acesse o Portal da Receita Federal para emissão de Certidões"
+                        class="c-link-list__item" target="_blank" rel="noopener noreferrer">
+                        <div class="c-link-list__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="c-link-list__text">
+                            <strong>Gerador de DAS MEI</strong>
+                            <span>Programa do Microempreendedor Individual</span>
+                        </div>
+                        <div class="c-link-list__arrow">→</div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
     </main>
 
     <footer class="c-footer" id="contato">
-        <div class="o-container c-footer__inner">
-            <div class="c-footer__brand">
-                <img src="assets/img/svg/logo-white.svg" alt="Corvelloni Contabilidade" width="168" height="40" />
-                <p>Rua Fictícia, 123 - Vila Mariana, São Paulo/SP • (11) 4000-1234</p>
-                <p class="u-text-muted u-mb-0">Atendimento de segunda a sexta, 9h às 18h.</p>
-            </div>
-            <div>
-                <h2 class="u-visually-hidden">Links úteis</h2>
-                <div class="c-footer__links">
-                    <a href="/ajuda/">Central de ajuda</a>
-                    <a href="/duvidas/">Perguntas frequentes</a>
-                    <a href="/politica-de-privacidade.html">Política de privacidade</a>
+        <div class="o-container">
+            <div class="c-footer__main">
+                <div class="c-footer__column">
+                    <h3 class="c-footer__title">Corvelloni Contabilidade</h3>
+                    <address class="c-footer__address">
+                        Av. Dep. Cunha Bueno, 1336 - Vila Industrial<br>
+                        Adamantina - SP, 17800-000
+                    </address>
+                </div>
+
+                <div class="c-footer__column">
+                    <h3 class="c-footer__title">Links Úteis</h3>
+                    <ul class="c-footer__links">
+                        <li><a href="/ajuda/">Central de Ajuda</a></li>
+                        <li><a href="/duvidas/">Dúvidas Frequentes</a></li>
+                        <li><a href="/politica-de-privacidade.html">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="c-footer__column">
+                    <h3 class="c-footer__title">Contato</h3>
+                    <ul class="c-footer__contact-list">
+                        <li class="c-footer__contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <a href="tel:+5518997048513">(+55) 18 99704-8513</a>
+                        </li>
+                        <li class="c-footer__contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:corvelloni.contabilidade@gmail.com">contato@corvelloni.com</a>
+                        </li>
+
+                    </ul>
+                    <p class="c-footer__hours">Seg. a Sex. das 9h às 18h.</p>
                 </div>
             </div>
+
             <div class="c-footer__bottom">
-                <span>© <span id="ano-atual">2024</span> Corvelloni Contabilidade. Todos os direitos reservados.</span>
-                <a href="mailto:contato@corvelloni.com.br">contato@corvelloni.com.br</a>
+                <div class="c-footer__legal">
+                    <span><strong>CNPJ:</strong> 46.627.589/0001-53</span>
+                    <span><strong>Responsável:</strong> Leonardo Corvelloni Hernandes • <strong>CRC:</strong>
+                        SP-1SP336294/O-8</span>
+                </div>
+                <div class="c-footer__copy">
+                    <span>© <span id="ano-atual"></span> Corvelloni Contabilidade. Todos os direitos reservados.</span>
+                </div>
             </div>
         </div>
     </footer>
-
-    <div class="c-cookie-banner" role="dialog" aria-live="polite" aria-label="Consentimento de cookies"
-        data-cookie-banner>
-        <div class="c-cookie-banner__inner">
-            <p class="u-mb-0">
-                Utilizamos cookies para melhorar a sua experiência e analisar o uso do site. Você pode gerenciar sua
-                escolha a qualquer momento em nossa <a href="/politica-de-privacidade.html">Política de Privacidade</a>.
-            </p>
-            <div class="c-cookie-banner__actions">
-                <button class="c-button c-button--primary" type="button" data-cookie-accept>Aceitar cookies</button>
-                <button class="c-button c-button--ghost" type="button" data-cookie-reject>Rejeitar</button>
-            </div>
-        </div>
-    </div>
-
-    <script type="application/ldjson">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Corvelloni Contabilidade",
-        "description": "Escritório de contabilidade consultiva em São Paulo com serviços de abertura de empresas, folha de pagamento e BPO financeiro.",
-        "url": "https://www.corvelloni.com.br/",
-        "telephone": "55-11-4000-1234",
-        "email": "contato@corvelloni.com.br",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Rua Fictícia, 123",
-          "addressLocality": "São Paulo",
-          "addressRegion": "SP",
-          "postalCode": "04101-300",
-          "addressCountry": "BR"
-        },
-        "sameAs": [
-          "https://www.linkedin.com/company/corvelloni",
-          "https://www.instagram.com/corvelloni"
-        ]
-      }
-    </script>
-    <script type="module" src="assets/js/app.js"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.corvelloni.com.br/#organization",
+      "name": "Corvelloni Contabilidade",
+      "url": "https://www.corvelloni.com.br/",
+      "logo": "https://www.corvelloni.com.br/assets/img/svg/logo.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-18-99704-8513",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.instagram.com/corvelloni.contabil/"
+      ]
+    },
+    {
+      "@type": "AccountingService",
+      "name": "Corvelloni Contabilidade",
+      "description": "Escritório de contabilidade e consultoria em Adamantina e Região, especialista em abertura de empresas, gestão fiscal e BPO financeiro para PMEs.",
+      "url": "https://www.corvelloni.com.br/",
+      "provider": {"@id": "https://www.corvelloni.com.br/#organization"},
+      "telephone": "+55-18-99704-8513",
+      "email": "corvelloni.contabilidade@gmail.com",
+      "taxID": "46.627.589/0001-53",
+      "employee": {
+        "@type":"Person",
+        "name":"Leonardo Corvelloni Hernandes",
+        "jobTitle": "Contador Responsável",
+        "description": "CRC: SP-1SP336294/O-8"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Dep. Cunha Bueno, 1336",
+        "addressLocality": "Adamantina",
+        "addressRegion": "SP",
+        "postalCode": "17800-000",
+        "addressCountry": "BR"
+      },
+      "openingHours": "Mo-Fr 09:00-18:00"
+    },
+    { "@type": "Service", "name": "Abertura de CNPJ", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Processo completo para formalização de empresas, incluindo registro, emissão de CNPJ e enquadramento tributário." },
+    { "@type": "Service", "name": "Troca de Contador", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Serviço de migração de contabilidade de forma segura e organizada, cuidando de toda a transição documental e fiscal." },
+    { "@type": "Service", "name": "Migração de MEI para ME", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Assessoria completa para o desenquadramento do MEI e transição para Microempresa (ME), garantindo conformidade fiscal." },
+    { "@type": "Service", "name": "Contabilidade para MPEs", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Gestão contábil e fiscal completa para Micro e Pequenas Empresas, apuração de impostos e entrega de obrigações acessórias." },
+    { "@type": "Service", "name": "Certificado Digital", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Emissão e renovação de certificados digitais e-CPF e e-CNPJ para assinatura de documentos e acesso a portais governamentais." },
+    { "@type": "Service", "name": "IRPF e ITR", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Elaboração e entrega da Declaração de Imposto de Renda Pessoa Física (IRPF) e Imposto sobre a Propriedade Territorial Rural (ITR)." },
+    { "@type": "Service", "name": "Alvarás e Licenças", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Assessoria para obtenção e renovação de alvarás de funcionamento, licenças sanitárias, ambientais e de bombeiros." },
+    { "@type": "Service", "name": "INCRA", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Serviços de regularização de imóveis rurais junto ao INCRA, incluindo emissão do Certificado de Cadastro de Imóvel Rural (CCIR)." },
+    { "@type": "Service", "name": "Holding Familiar", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Planejamento e constituição de Holding Familiar para proteção patrimonial, planejamento sucessório e otimização tributária." },
+    { "@type": "Service", "name": "Registro de Marca", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Processo de registro de marca junto ao Instituto Nacional da Propriedade Industrial (INPI) para proteção do seu negócio." },
+    { "@type": "Service", "name": "BPO Financeiro", "provider": {"@id": "https://www.corvelloni.com.br/#organization"}, "description": "Terceirização da gestão financeira, incluindo controle de contas a pagar e receber, conciliação bancária e emissão de relatórios." }
+  ]
+}
+</script>
+    <script type="module" src="/assets/js/app.js"></script>
 </body>
 
 </html>
