@@ -47,30 +47,67 @@
 
 ### Structure (high level)
 
-/
-├─ index.html
-├─ ajuda/
-├─ calc/
-│  ├─ salario-liquido/
-│  ├─ rescisao/
-│  ├─ impostos-pj/
-│  ├─ fator-r/
-│  ├─ custo-abrir-cnpj/
-│  └─ clt-vs-pj/
-├─ duvidas/
-│  ├─ index.html
-│  ├─ como-abrir-empresa/
-│  └─ como-funciona-simples/
-├─ assets/
-│  ├─ css/
-│  ├─ js/
-│  ├─ img/    # webp/avif/png as needed
-│  ├─ svg/
-│  └─ icons/
-├─ data/
-│  ├─ simples-faixas.json
-│  ├─ custos-abertura.json
-│  └─ br-tributos.json
+
+/index.html
+/ajuda/
+/calc/
+/calc/salario-liquido/
+/calc/rescisao/
+/calc/impostos-pj/
+/calc/fator-r/
+/calc/custo-abrir-cnpj/
+/calc/clt-vs-pj/
+/data/
+/data/custos-abertura.json
+/data/br-tributos.json
+/data/simples-faixas.json
+/duvidas/
+/duvidas/index.html
+/duvidas/como-abrir-empresa/
+/duvidas/como-funciona-simples/
+/assets/
+/assets/css/
+/assets/css/main.css
+/assets/css/tokens/
+/assets/css/tokens/_settings.css
+/assets/css/base/
+/assets/css/base/_generic2.css
+/assets/css/utilities/
+/assets/css/utilities/_utilities2.css
+/assets/css/objects/
+/assets/css/objects/_o-container.css
+/assets/css/components/
+/assets/css/components/_c-components.css
+/assets/css/components/_c-formsandcalc.css
+/assets/css/pages/
+/assets/css/pages/_calculator.css
+/assets/css/responsive/
+/assets/css/responsive/_c-responsive.css
+/assets/css/responsive/_mobile-nav.css
+/assets/css/accessibility/
+/assets/css/accessibility/_c-accessibility.css
+/assets/img/ 
+/assets/img/logo-white.png
+/assets/img/avatar.png
+/assets/img/svg/
+/assets/img/svg/logo.svg
+/assets/img/svg/logo-white.svg
+/assets/img/svg/hero.svg
+/assets/icons/
+/assets/icons/icon-512-maskable.png
+/assets/icons/icon-192-maskable.png
+/assets/icons/android-chrome-512.png
+/assets/icons/android-chrome-192.png
+/assets/icons/apple-touch-icon.png
+/assets/icons/favicon-32.png
+/assets/icons/favicon-16.png
+/assets/js/
+/assets/js/app.js
+/assets/js/modules/navigation.js
+/assets/js/modules/cookie-consent.js
+/assets/js/modules/custos-abertura-pj.js
+/assets/js/modules/help-dialog.js
+/assets/js/modules/clt-vs-pj.js
 
 ## CSS ARCHITECTURE RULES (ITCSS via assets/css/main.css)
 
@@ -82,6 +119,8 @@
 6. `/asset/utilities/_utilities2.css`
 7. `/accessibility/_c-accessibility.css"`
 8. `/responsive/_c-responsive.css.css"`
+9. `/responsive/_mobile-nav.css"`
+10. `/pages/_calculator.css"`
 
 ## JS (ES MODULES) order:
 
