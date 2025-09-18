@@ -1,19 +1,26 @@
-@import url("base/_settings.css") layer(base);
-@import url("base/_normalize.css") layer(base);
-@import url("base/_typography.css") layer(base);
-@import url("base/_print.css") layer(base);
+/* tokens */
+@import url("tokens/_settings.css") layer(tokens);
 
+/* base */
+@import url("base/_generic2.css") layer(base);
+
+/* utilities */
+@import url("utilities/_utilities2.css") layer(utilities);
+
+/* objects */
 @import url("objects/_o-container.css") layer(objects);
-@import url("objects/_o-section.css") layer(objects);
 
-@import url("components/_c-header.css") layer(components);
-@import url("components/_c-nav.css") layer(components);
-@import url("components/_c-hero.css") layer(components);
-@import url("components/_c-button.css") layer(components);
-@import url("components/_c-card.css") layer(components);
-@import url("components/_c-cookie-banner.css") layer(components);
-@import url("components/_c-footer.css") layer(components);
+/* components */
+@import url("components/_c-components.css") layer(components);
+@import url("components/_c-formsandcalc.css") layer(components);
 
-@import url("utilities/_u-visually-hidden.css") layer(utilities);
-@import url("utilities/_u-text.css") layer(utilities);
-@import url("utilities/_u-spacing.css") layer(utilities);
+/* pages (conditional) */
+@import url("pages/_calculator.css") layer(components);
+
+/* responsive */
+@import url("responsive/_c-responsive.css") layer(responsive);
+@import url("responsive/_mobile-nav.css") layer(responsive);
+
+/* accessibility */
+@import url("accessibility/_c-accessibility.css") layer(accessibility);
+
