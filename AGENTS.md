@@ -12,7 +12,7 @@ EXECUTION POLICY
 
 SCOPE (FILES YOU MAY EDIT)
 - HTML pages at repo root and under: `ajuda/`, `duvidas/`, `calc/<slug>/`.
-- CSS: `assets/css/{base,objects,components,utilities}`, `assets/css/main.css`.
+- CSS: `assets/css/{tokens, base, utilities, objects,components,responsive and accessibility}`, `assets/css/main.css`.
 - JS (ES MODULES): `assets/js/app.js`, `assets/js/modules/**`.
 - Assets: `assets/img/**`, `assets/svg/**`, `assets/icons/**`, plus `site.webmanifest`, `robots.txt`, `sitemap.xml`.
 
@@ -21,14 +21,14 @@ BRAZIL MANDATE
 - Brazilian patterns: `R$` currency, dates, phones, addresses. Clear privacy wording.
 
 PALETTE TOKENS (AUTHORITATIVE)
-~~~css
+```css
 :root{
-  --color-primary-050:#e9f1ff;
-  --color-primary-500:#a63238;
-  --color-primary-600:#8b2c37;
-  --color-neutral-900:#111827;
+  --color-primary-050: #e9f1ff;
+  --color-primary-500: #a63238;
+  --color-primary-600: #8b2c37;
+  --color-neutral-900: #111827;
 }
-~~~
+```
 Rules: use tokens only; no hard-coded hex in components; derive surfaces/accent via `color-mix()`; ensure AA contrast.
 
 LAYOUT & RESPONSIVENESS
@@ -69,14 +69,14 @@ PERFORMANCE TARGETS (NO TOOLING)
 
 CSS ARCHITECTURE (ITCSS + BEM + `@layer`)
 - Import order in `assets/css/main.css`:
-  1) `base/_settings.css` (tokens, **z-index map**)
-  2) `base/_normalize.css`
-  3) `base/_typography.css`
-  4) `base/_print.css` (if present)
-  5) `objects/_o-*.css`
-  6) `components/_c-*.css`
-  7) `utilities/_u-*.css`
-- Namespaces: `.o-*` objects, `.c-*` components, `.u-*` utilities.
+1. `/asset/tokens/_settings.css`
+2. `/asset/base/_generic2.css`
+3. `/asset/objects/_o-container.css`
+4. `/asset/components/_c-components.css`
+5. `/asset/components/_c-formsandcalc.css`
+6. `/asset/utilities/_utilities2.css`
+7. `/accessibility/_c-accessibility.css"`
+8. `/responsive/_c-responsive.css.css"`
 - **No inline styles. No JS-injected CSS.**
 - Z-index via tokens; annotate stacking contexts; avoid magic numbers.
 
