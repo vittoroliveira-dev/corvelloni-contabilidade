@@ -1,0 +1,19 @@
+/* =========================================================================
+8) ACESSIBILIDADE
+========================================================================= */
+@layer accessibility {
+  @media (prefers-reduced-motion:reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0s !important;
+      animation-iteration-count: 1 !important;
+      animation-delay: 0s !important;
+      transition-duration: 0s !important;
+    }
+  }
+}
