@@ -1,7 +1,15 @@
+/* =========================================================================
+4) OBJECTS — Padrões de layout - CONTAINER E SECTION
+========================================================================= */
 @layer objects {
     .o-container {
-        width: min(100%, var(--container-max));
+        width: 100%;
+        max-width: var(--container-max, 1200px);
         margin-inline: auto;
-        padding-inline: clamp(var(--space-300), 5vw, var(--space-500));
+        padding-inline: var(--spacing-md);
+    }
+
+    .o-section {
+        padding-block: var(--spacing-xl);
     }
 }
