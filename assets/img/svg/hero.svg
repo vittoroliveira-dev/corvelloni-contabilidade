@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="1365" viewBox="0 0 2048 1365" role="img" aria-labelledby="title desc" focusable="false">
+  <title id="title">Hero de contabilidade com ícones financeiros e elementos de confiança</title>
+  <desc id="desc">Ilustração limpa com calculadora, gráficos, planilhas, recibos e selo de conformidade. Estilo flat, fundo transparente.</desc>
+
+  <defs>
+    <style>
+      :root { color-scheme: light dark; }
+      .hero-primary { fill: var(--color-primary-500, #1b4dcc); }
+      .hero-primary-weak { fill: var(--color-primary-100, #e7efff); }
+      .hero-accent { fill: var(--color-accent-500, #17b26a); }
+      .hero-accent-weak { fill: var(--color-accent-100, #e8fbf2); }
+      .hero-neutral-900 { fill: var(--color-neutral-900, #0f172a); }
+      .hero-neutral-700 { fill: var(--color-neutral-700, #334155); }
+      .hero-neutral-300 { fill: var(--color-neutral-300, #cbd5e1); }
+      .hero-neutral-100 { fill: var(--color-neutral-100, #f1f5f9); }
+      .hero-stroke { stroke: var(--color-neutral-900, #0f172a); stroke-width: 2; vector-effect: non-scaling-stroke; }
+    </style>
+
+    <!-- Sombra suave -->
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"></feGaussianBlur>
+      <feOffset dx="0" dy="6" result="off"></feOffset>
+      <feColorMatrix in="off" type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 .12 0"></feColorMatrix>
+      <feMerge>
+        <feMergeNode></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- GRUPO: composição central -->
+  <g transform="translate(320,140)">
+    <!-- Cartão planilha -->
+    <g filter="url(#soft)">
+      <rect x="180" y="40" rx="16" ry="16" width="760" height="520" class="hero-neutral-100"></rect>
+      <rect x="180" y="40" rx="16" ry="16" width="760" height="80" class="hero-primary"></rect>
+      <!-- linhas da tabela -->
+      <g class="hero-neutral-300">
+        <rect x="220" y="160" width="680" height="16"></rect>
+        <rect x="220" y="200" width="540" height="16"></rect>
+        <rect x="220" y="240" width="600" height="16"></rect>
+        <rect x="220" y="280" width="420" height="16"></rect>
+        <rect x="220" y="320" width="660" height="16"></rect>
+        <rect x="220" y="360" width="480" height="16"></rect>
+        <rect x="220" y="400" width="620" height="16"></rect>
+      </g>
+      <!-- gráfico de barras -->
+      <g transform="translate(220,430)">
+        <rect x="0" y="-80" width="36" height="80" class="hero-primary-weak"></rect>
+        <rect x="56" y="-110" width="36" height="110" class="hero-primary"></rect>
+        <rect x="112" y="-60" width="36" height="60" class="hero-accent-weak"></rect>
+        <rect x="168" y="-140" width="36" height="140" class="hero-accent"></rect>
+      </g>
+    </g>
+
+    <!-- Calculadora -->
+    <g transform="translate(1000,140)" filter="url(#soft)">
+      <rect x="0" y="0" rx="24" ry="24" width="360" height="480" class="hero-neutral-100"></rect>
+      <rect x="24" y="24" rx="12" ry="12" width="312" height="80" class="hero-primary-weak"></rect>
+      <!-- teclas -->
+      <g class="hero-neutral-300">
+        <rect x="24" y="124" width="72" height="56" rx="8"></rect>
+        <rect x="108" y="124" width="72" height="56" rx="8"></rect>
+        <rect x="192" y="124" width="72" height="56" rx="8"></rect>
+        <rect x="276" y="124" width="60" height="122" rx="8" class="hero-accent"></rect>
+        <rect x="24" y="192" width="72" height="56" rx="8"></rect>
+        <rect x="108" y="192" width="72" height="56" rx="8"></rect>
+        <rect x="192" y="192" width="72" height="56" rx="8"></rect>
+        <rect x="24" y="260" width="72" height="56" rx="8"></rect>
+        <rect x="108" y="260" width="72" height="56" rx="8"></rect>
+        <rect x="192" y="260" width="72" height="56" rx="8"></rect>
+        <rect x="24" y="328" width="156" height="56" rx="8"></rect>
+        <rect x="192" y="328" width="72" height="56" rx="8"></rect>
+        <rect x="276" y="260" width="60" height="124" rx="8" class="hero-primary"></rect>
+      </g>
+    </g>
+
+    <!-- Recibo/nota -->
+    <g transform="translate(20,320)" filter="url(#soft)">
+      <path d="M0,0 h340 v280 l-20,-12 -20,12 -20,-12 -20,12 -20,-12 -20,12 -20,-12 -20,12 -20,-12 -20,12 -20,-12 -20,12 v-280 z" class="hero-neutral-100"></path>
+      <rect x="28" y="28" width="284" height="16" class="hero-neutral-300"></rect>
+      <rect x="28" y="64" width="220" height="16" class="hero-neutral-300"></rect>
+      <rect x="28" y="100" width="260" height="16" class="hero-neutral-300"></rect>
+      <rect x="28" y="180" width="180" height="16" class="hero-accent"></rect>
+    </g>
+
+    <!-- Selo de conformidade -->
+    <g transform="translate(1260,10)" filter="url(#soft)">
+      <circle cx="120" cy="120" r="120" class="hero-accent-weak"></circle>
+      <circle cx="120" cy="120" r="92" class="hero-accent"></circle>
+      <path d="M80 120 l30 30 54 -76" fill="none" class="hero-stroke" stroke-width="14"></path>
+    </g>
+
+    <!-- Decor shapes -->
+    <g opacity="0.12">
+      <circle cx="240" cy="40" r="16" class="hero-primary"></circle>
+      <circle cx="1120" cy="560" r="12" class="hero-primary"></circle>
+      <rect x="1440" y="260" width="24" height="24" class="hero-accent"></rect>
+      <rect x="160" y="600" width="28" height="28" class="hero-accent"></rect>
+    </g>
+  </g>
+
+  <!-- Área para título/CTA à direita (vazio no SVG) -->
+  <!-- Coloque o conteúdo HTML do hero ao lado desta ilustração no layout -->
+</svg>
