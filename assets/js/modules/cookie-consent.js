@@ -21,6 +21,8 @@ if (banner && acceptButton && rejectButton) {
         duration: 200,
         easing: "ease-out",
       });
+    } else {
+      banner.style.opacity = "1";
     }
   }
 
