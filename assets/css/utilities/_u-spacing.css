@@ -1,9 +1,0 @@
-@layer utilities {
-    .u-mb-0 {
-        margin-bottom: 0 !important;
-    }
-
-    .u-mb-200 {
-        margin-bottom: var(--space-200) !important;
-    }
-}
