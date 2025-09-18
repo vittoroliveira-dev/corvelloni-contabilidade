@@ -1,0 +1,42 @@
+/* =========================================================================
+3) UTILITÁRIOS
+========================================================================= */
+@layer utilities {
+  .u-visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .u-visually-hidden--focusable:active,
+  .u-visually-hidden--focusable:focus {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    white-space: normal;
+    width: auto;
+  }
+
+  .u-skiplink:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 1rem 0;
+    clip: auto;
+    clip-path: none;
+    padding: .5rem .75rem;
+    background: #111827;
+    color: #fff;
+    border-radius: var(--radius-sm);
+  }
+}
