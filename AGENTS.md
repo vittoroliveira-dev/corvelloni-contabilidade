@@ -67,8 +67,72 @@ PERFORMANCE TARGETS (NO TOOLING)
 - Images: `srcset/sizes`, explicit `width/height`, `loading="lazy"` and `decoding="async"` outside heroes; prefer AVIF/WebP.
 - Fonts: `font-display: swap`; limit weights; define fallbacks.
 
-CSS ARCHITECTURE (ITCSS + BEM + `@layer`)
-- Import order in `assets/css/main.css`:
+### Structure (high level)
+
+
+/index.html
+/ajuda/
+/calc/
+/calc/salario-liquido/
+/calc/rescisao/
+/calc/impostos-pj/
+/calc/fator-r/
+/calc/custo-abrir-cnpj/
+/calc/clt-vs-pj/
+/data/
+/data/custos-abertura.json
+/data/br-tributos.json
+/data/simples-faixas.json
+/duvidas/
+/duvidas/index.html
+/duvidas/como-abrir-empresa/
+/duvidas/como-funciona-simples/
+/assets/
+/assets/css/
+/assets/css/main.css
+/assets/css/tokens/
+/assets/css/tokens/_settings.css
+/assets/css/base/
+/assets/css/base/_generic2.css
+/assets/css/utilities/
+/assets/css/utilities/_utilities2.css
+/assets/css/objects/
+/assets/css/objects/_o-container.css
+/assets/css/components/
+/assets/css/components/_c-components.css
+/assets/css/components/_c-formsandcalc.css
+/assets/css/pages/
+/assets/css/pages/_calculator.css
+/assets/css/responsive/
+/assets/css/responsive/_c-responsive.css
+/assets/css/responsive/_mobile-nav.css
+/assets/css/accessibility/
+/assets/css/accessibility/_c-accessibility.css
+/assets/img/ 
+/assets/img/logo-white.png
+/assets/img/avatar.png
+/assets/img/svg/
+/assets/img/svg/logo.svg
+/assets/img/svg/logo-white.svg
+/assets/img/svg/hero.svg
+/assets/icons/
+/assets/icons/icon-512-maskable.png
+/assets/icons/icon-192-maskable.png
+/assets/icons/android-chrome-512.png
+/assets/icons/android-chrome-192.png
+/assets/icons/apple-touch-icon.png
+/assets/icons/favicon-32.png
+/assets/icons/favicon-16.png
+/assets/js/
+/assets/js/app.js
+/assets/js/modules/navigation.js
+/assets/js/modules/cookie-consent.js
+/assets/js/modules/custos-abertura-pj.js
+/assets/js/modules/help-dialog.js
+/assets/js/modules/clt-vs-pj.js
+
+## CSS ARCHITECTURE RULES (ITCSS via assets/css/main.css)
+
 1. `/asset/tokens/_settings.css`
 2. `/asset/base/_generic2.css`
 3. `/asset/objects/_o-container.css`
@@ -77,6 +141,8 @@ CSS ARCHITECTURE (ITCSS + BEM + `@layer`)
 6. `/asset/utilities/_utilities2.css`
 7. `/accessibility/_c-accessibility.css"`
 8. `/responsive/_c-responsive.css.css"`
+9. `/responsive/_mobile-nav.css"`
+10. `/pages/_calculator.css"`
 - **No inline styles. No JS-injected CSS.**
 - Z-index via tokens; annotate stacking contexts; avoid magic numbers.
 
@@ -108,51 +174,3 @@ NON-GOALS
 - Do not modify build tools or configs.
 - Do not introduce inline styles or JS-injected CSS.
 
-REFERENCE SNIPPETS
-
-Head essentials:
-~~~html
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Contabilidade online para PJ | Corvelloni Contabilidade</title>
-  <meta name="description" content="Abertura de empresa e contabilidade online integrada para PJ.">
-  <link rel="canonical" href="https://example.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Contabilidade online para PJ | Corvelloni Contabilidade">
-  <meta property="og:description" content="Abertura de empresa e contabilidade online integrada para PJ.">
-  <meta property="og:url" content="https://example.com/">
-  <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Corvelloni Contabilidade",
-    "url":"https://example.com/",
-    "logo":"https://example.com/assets/svg/logo.svg"
-  }
-  </script>
-  <link rel="stylesheet" href="assets/css/main.css">
-</head>
-~~~
-
-Responsive image with reserved space:
-~~~html
-<img
-  src="assets/img/hero-800.webp"
-  srcset="assets/img/hero-480.webp 480w, assets/img/hero-800.webp 800w, assets/img/hero-1200.webp 1200w"
-  sizes="(min-width:1024px) 50vw, 100vw"
-  width="1200" height="800"
-  alt="Corvelloni Contabilidade atendendo empresas PJ"
-  decoding="async" loading="eager">
-~~~
-
-Primary button and focus:
-~~~css
-.c-button{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:.75rem 1rem;border-radius:.5rem;font-weight:600;text-decoration:none;
-  color:var(--color-neutral-900);background:var(--color-primary-050);}
-.c-button--primary{color:#fff;background:var(--color-primary-600);}
-.c-button:focus-visible{outline:2px solid currentColor;outline-offset:2px;}
-~~~
